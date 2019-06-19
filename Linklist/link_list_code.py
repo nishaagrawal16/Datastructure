@@ -22,7 +22,7 @@ class SingleLinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print p.info,
+      print(p.info, end=" ")
       p = p.next
     print('\n')
     
@@ -43,7 +43,7 @@ class SingleLinkList:
     while p is not None:
       count = count + 1
       p = p.next
-    print 'Total Nodes: ', count
+    print('Total Nodes: ', count)
     return count
 
   def insertAtBeg(self, value):
@@ -164,7 +164,7 @@ class SingleLinkList:
     while fast and fast.next is not None:
       slow = slow.next
       fast = fast.next.next
-    print 'middle element is: ', slow.info
+    print('middle element is: ', slow.info)
 
   def reverse(self):
     prev =  None
