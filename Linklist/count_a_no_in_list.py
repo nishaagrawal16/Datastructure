@@ -51,11 +51,11 @@ def main():
     link_list.append(ele)
     i = i + 1
 
-  linkList = LinkList()
-  linkList.create_list(link_list)
-  linkList.traverse()
+  link_list = LinkList()
+  link_list.create_list(link_list)
+  link_list.traverse()
   count_num = int(input('Enter a number: '))
-  count = linkList.countANumber(count_num)
+  count = link_list.countANumber(count_num)
   print('Number of times value %s present in list: %s' % (count_num, count))
 
 if __name__ == '__main__':

@@ -27,9 +27,9 @@ class SingleLinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print(p.info, end=" ")
+      print('%d -> ' % p.info, end=" ")
       p = p.next
-    print('\n')
+    print('None')
 
   def isPalindrom(self):    
     left = self.start
@@ -56,11 +56,11 @@ class SingleLinkList:
     print(left.info)
     return rsp_info 
     
-linkList = SingleLinkList()
+link_list = SingleLinkList()
 print('*********** CREATING LIST ***************')
-linkList.create_list()
+link_list.create_list()
 
 print('*********** TRAVERSE LIST ***************')
-linkList.traverse()
+link_list.traverse()
 
-linkList.isPalindrom()
+link_list.isPalindrom()

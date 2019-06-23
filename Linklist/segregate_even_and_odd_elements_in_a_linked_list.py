@@ -19,9 +19,9 @@ class LinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print(p.info, end=" ")
+      print('%d -> ' % p.info, end=" ")
       p = p.next
-    print('\n')
+    print('None')
 
   def prepareEvenOdd(self):
     p = self.start
@@ -63,11 +63,11 @@ class LinkList:
         p = p.next
     print ('Last element of list: ', p.info)
 
-linkList = LinkList()
-linkList.create_list([17, 15, 8, 12, 10, 5, 4, 1, 7, 6])
-# linkList.create_list([8, 12, 10, 5, 4, 1,6])
-# linkList.create_list([8, 12, 10])
-# linkList.create_list([1, 3, 5, 7])
-linkList.traverse()
-linkList.prepareEvenOdd()
-linkList.traverse()
+link_list = LinkList()
+link_list.create_list([17, 15, 8, 12, 10, 5, 4, 1, 7, 6])
+# link_list.create_list([8, 12, 10, 5, 4, 1,6])
+# link_list.create_list([8, 12, 10])
+# link_list.create_list([1, 3, 5, 7])
+link_list.traverse()
+link_list.prepareEvenOdd()
+link_list.traverse()

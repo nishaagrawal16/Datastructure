@@ -7,24 +7,21 @@ class SingleLinkList:
   def __init__(self):
     self.start = None
 
-  def create_list(self):
-    n1 = Node(5)
-    n2 = Node(2)
-    n3 = Node(2)
-    n4 = Node(1)
-    n5 = Node(1)
-    n1.next = n2
-    n2.next = n3
-    n3.next = n4
-    n4.next = n5
-    self.start = n1
+  def create_list(self, li):
+    if self.start is None:
+      self.start = Node(li[0])
+    p = self.start
+    for i in range(1,len(li)):
+      temp = Node(li[i])
+      p.next = temp
+      p = p.next
 
   def traverse(self):
     p = self.start
     while p is not None:
-      print(p.info, end=" ")
+      print('%d -> ' % p.info, end=" ")
       p = p.next
-    print('\n')
+    print('None')
 
   def remove_duplicate_elements(self):
     p = self.start
@@ -38,9 +35,9 @@ class SingleLinkList:
         unique_dict[p.next.info] = True
         p = p.next
 
-linkList = SingleLinkList()
-linkList.create_list()
-linkList.traverse()
+link_list = SingleLinkList()
+link_list.create_list([5,1,7,1,2,5,3,7])
+link_list.traverse()
 print('****** AFTER REMOVE DUPLICATE ELEMENTS *********')
-linkList.remove_duplicate_elements()
-linkList.traverse()
+link_list.remove_duplicate_elements()
+link_list.traverse()

@@ -29,10 +29,10 @@ class LinkList:
     p = self.start
     i = 0
     while p is not None and i<10:
-      print(p.info, end=" ")
+      print('%d -> ' % p.info, end=" ")
       p = p.next
       i = i + 1
-    print('\n')
+    print('None')
 
   def findLoopWithTotalElementsInLoop(self):
     slow = self.start
@@ -51,8 +51,8 @@ class LinkList:
     print('No Loop present')
     return 0
    
-linkList = LinkList()
-linkList.create_list_with_loop()
-linkList.traverse()
-count = linkList.findLoopWithTotalElementsInLoop()
+link_list = LinkList()
+link_list.create_list_with_loop()
+link_list.traverse()
+count = link_list.findLoopWithTotalElementsInLoop()
 print('Total Nodes present in loop: %s' % count)

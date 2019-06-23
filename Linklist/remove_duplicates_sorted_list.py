@@ -1,3 +1,4 @@
+# O(n)
 class Node:
   def __init__(self, value):
     self.info = value
@@ -22,9 +23,9 @@ class SingleLinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print(p.info, end=" ")
+      print('%d -> ' % p.info, end=" ")
       p = p.next
-    print('\n')
+    print('None')
 
   def remove_duplicate_elements(self):
     p = self.start
@@ -34,9 +35,9 @@ class SingleLinkList:
       else:
         p = p.next
 
-linkList = SingleLinkList()
-linkList.create_list()
-linkList.traverse()
+link_list = SingleLinkList()
+link_list.create_list()
+link_list.traverse()
 print('****** AFTER REMOVE DUPLICATE ELEMENTS *********')
-linkList.remove_duplicate_elements()
-linkList.traverse()
+link_list.remove_duplicate_elements()
+link_list.traverse()

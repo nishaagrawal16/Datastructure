@@ -22,9 +22,9 @@ class SingleLinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print(p.info, end=" ")
+      print('%d -> ' % p.info, end=" ")
       p = p.next
-    print('\n')
+    print('None')
     
   def searchElement(self, value):
     p = self.start
@@ -176,56 +176,57 @@ class SingleLinkList:
       current = next
     self.start = prev  
 
-linkList = SingleLinkList()
+link_list = SingleLinkList()
 print('*********** CREATING LIST ***************')
-linkList.create_list()
+link_list.create_list()
 
 print('*********** TRAVERSE LIST ***************')
-linkList.traverse()
+link_list.traverse()
 
 print('*********** SEARCHING ELEMENT ***********')
-linkList.searchElement(20)
+link_list.searchElement(20)
 
 print('*********** COUNT NODES *****************')
-count = linkList.countNodes()
+count = link_list.countNodes()
 
 print('*********** INSERT- AT BEGINING *********')
-linkList.insertAtBeg(5)
-linkList.traverse()
+link_list.insertAtBeg(5)
+link_list.traverse()
 
 print('*********** INSERT- AT END **************')
-linkList.insertEnd(55)
-linkList.traverse()
+link_list.insertEnd(55)
+link_list.traverse()
 
 print('*********** INSERT- AT Kth LOCATION *****')
-linkList.insertBetween(25, 4)
-linkList.traverse()
+link_list.insertBetween(25, 4)
+link_list.traverse()
 
 print('*********** DELETE- AT END **************')
-linkList.deleteEnd()
-linkList.traverse()
+link_list.deleteEnd()
+link_list.traverse()
 
 print('*********** DELETE- FROM BEGNING ********')
-linkList.deleteFromBeg()
-linkList.traverse()
+link_list.deleteFromBeg()
+link_list.traverse()
 
 print('*********** DELETE- AT Kth LOCATION *****')
-linkList.deleteFromBetween(3)
-linkList.traverse()
+link_list.deleteFromBetween(3)
+link_list.traverse()
 
 print('*********** DELETE- GIVEN INFO **********')
-linkList.deleteAtInfo(30)
-linkList.traverse()
+link_list.deleteAtInfo(30)
+link_list.traverse()
 
 print('*********** Nth NODE ********************')
-linkList.nthNode(3)
+link_list.nthNode(3)
 
+# This is in two times traversal
 print('*********** Nth NODE FROM LAST **********')
-linkList.nthNodeFromLast(4)
+link_list.nthNodeFromLast(4)
 
 print('*********** MIDDLE NODE *****************')
-linkList.middleElement()
+link_list.middleElement()
 
 print('********** REVERSE LINK LIST ************')
-linkList.reverse()
-linkList.traverse()
+link_list.reverse()
+link_list.traverse()

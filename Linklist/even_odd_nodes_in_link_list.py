@@ -19,9 +19,9 @@ class LinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print(p.info, end=" ")
+      print('%d -> ' % p.info, end=" ")
       p = p.next
-    print('\n')
+    print('None')
 
   def oddEvenList(self):
     p = self.start
@@ -46,10 +46,10 @@ class LinkList:
       i = i + 1
 
 
-linkList = LinkList()
-linkList.create_list([1, 2, 3, 4, 5])
+link_list = LinkList()
+link_list.create_list([1, 2, 3, 4, 5])
 # Expected: 1, 3, 5, 2, 4
-linkList.traverse()
-linkList.oddEvenList()
+link_list.traverse()
+link_list.oddEvenList()
 print('************* ODD-EVEN LIST **************')
-linkList.traverse()
+link_list.traverse()

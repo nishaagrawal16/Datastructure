@@ -29,9 +29,9 @@ class LinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print(p.info, end=" ")
+      print('%d -> ' % p.info, end=" ")
       p = p.next
-    print('\n')
+    print('None')
 
   def swap(self, x, y):
     # when x and y are same number
