@@ -25,14 +25,14 @@ class SingleLinkList:
 
   def remove_duplicate_elements(self):
     p = self.start
-    unique_dict = {}
+    unique_list = set()
     if p is not None:
-      unique_dict[p.info] = True
+      unique_list.add(p.info)
     while p.next is not None:
-      if unique_dict.get(p.next.info):
+      if p.next.info in unique_list:
         p.next = p.next.next
       else:
-        unique_dict[p.next.info] = True
+        unique_list.add(p.next.info)
         p = p.next
 
 link_list = SingleLinkList()
