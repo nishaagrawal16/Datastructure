@@ -11,6 +11,7 @@ class LinkList:
     self.start = None
 
   def create_list(self, li):
+    print(type(li), li)
     if self.start is None:
       self.start = Node(li[0])
     p = self.start
@@ -44,15 +45,15 @@ class LinkList:
 
 def main():
   num = int(input('Enter number of Nodes in the link list: '))
-  link_list = []
+  node_list = []
   i = 0
   while i < num:
     ele = int(input('Enter %d element: ' % i))
-    link_list.append(ele)
+    node_list.append(ele)
     i = i + 1
 
   link_list = LinkList()
-  link_list.create_list(link_list)
+  link_list.create_list(node_list)
   link_list.traverse()
   count_num = int(input('Enter a number: '))
   count = link_list.countANumber(count_num)
