@@ -43,7 +43,7 @@ class LinkList:
       return
 
     # List has more than one nodes
-    while True:
+    while p is not None:
       if p.next == self.start:
         temp.next = p.next
         p.next = temp
@@ -67,7 +67,7 @@ class LinkList:
       return
 
     # Delete last Element
-    while True:
+    while p and p.next and p.next.next:
       if p.next.next == self.start:
         p.next = self.start
         break
@@ -88,7 +88,7 @@ class LinkList:
 
     current = self.start
     prev = self.start
-    while True:
+    while prev is not None:
       if prev.next == current:
         prev.next = current.next
         self.start = prev.next
@@ -99,7 +99,7 @@ class LinkList:
   def traverse(self):
     if self.start is not None:
       p = self.start
-      while (True):
+      while p is not None:
         print('%d -> ' % p.info, end="")
         p = p.next
         if p == self.start:
@@ -129,7 +129,6 @@ def main():
   print('******************** DELETE FROM END *******************')
   circular_linklist1.delete_from_end()
   circular_linklist1.traverse()
-
 
 
 if __name__ == '__main__':
