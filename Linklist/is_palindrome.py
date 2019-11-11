@@ -31,30 +31,24 @@ class SingleLinkList:
       p = p.next
     print('None')
 
-  def isPalindrom(self):    
+  def isPalindrome(self):
     left = self.start
     right = self.start
-    print('count: ', self.count)
-    if self.isPalindromCode(left, right):
-      print('Palindrom')
+    rsp, left = self.isPalindromeCheck(left, right)
+    if rsp:
+      print('Palindrome
     else:
-      print('Not Palindrom')
-  # Not right program
-  def isPalindromCode(self, left, right):
-    self.count = self.count + 1
-    print('hello')
-    # After reaching right to None
+      print('not Palindrome')
+
+  def isPalindromeCheck(self, left, right):
     if right is None:
-      return True
-    # Only right has to point to the next in each call.
-    rsp = self.isPalindromCode(left, right.next)
+      return True, left
+    rsp, left = self.isPalindromeCheck(left, right.next)
     if not rsp:
-      return False
-    rsp_info = (left.info == right.info)
-    print(left.info, right.info, )
-    left = left.next
-    print(left.info)
-    return rsp_info 
+      return False, left
+    print(left.info, right.info)
+    rsp = (left.info == right.info)
+    return rsp, left.next
     
 link_list = SingleLinkList()
 print('*********** CREATING LIST ***************')
