@@ -1,7 +1,5 @@
-# we solve this problem using recurson in which left and right two pointer point to the start of the node.
-# then call isPalindrom(left, right.next) untill right will become None
-# check left.info == right.info after returning from None to the right pointer. Right pointer will go from null to 1 node
-# TODO
+# we solve this problem by using stack in which slow and fast two pointer point to the start of the node.
+# then move slow pointer once and store slow.info in the stack and fast pointer 2 times.
 class Node:
   def __init__(self, value):
     self.info = value
