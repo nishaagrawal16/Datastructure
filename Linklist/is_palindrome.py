@@ -1,5 +1,5 @@
 # we solve this problem using recurson in which left and right two pointer point to the start of the node.
-# then call isPalindrom(left, right.next) untill right will become None
+# then call isPalindrome(left, right.next) untill right will become None
 # check left.info == right.info after returning from None to the right pointer. Right pointer will go from null to 1 node
 # TODO
 class Node:
@@ -36,7 +36,7 @@ class SingleLinkList:
     right = self.start
     rsp, left = self.isPalindromeCheck(left, right)
     if rsp:
-      print('Palindrome
+      print('Palindrome')
     else:
       print('not Palindrome')
 
@@ -57,4 +57,4 @@ link_list.create_list()
 print('*********** TRAVERSE LIST ***************')
 link_list.traverse()
 
-link_list.isPalindrom()
+link_list.isPalindrome()
