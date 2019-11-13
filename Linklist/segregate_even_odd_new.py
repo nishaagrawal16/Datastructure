@@ -20,7 +20,7 @@
 #
 # Complexity:
 # O(n)
-
+# preferred Approach
 class Node:
   def __init__(self, value):
     self.info = value
