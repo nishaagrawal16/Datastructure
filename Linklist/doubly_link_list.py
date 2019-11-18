@@ -60,7 +60,34 @@ class LinkList:
     temp.prev = p
     p.next = temp
 
-     
+  def delete_from_end(self):
+    if self.start == None:
+      print('List is empty')
+      return
+    p = self.start
+    while p.next.next is not None:
+      p = p.next
+    p.next.prev = None
+    p.next = None
+
+  def delete_from_starting(self):
+    if self.start == None:
+      print('List is empty')
+      return
+    p = self.start
+    self.start = p.next
+    self.start.prev = None
+
+  def delete_from_given_position(self, position):
+    p = self.start
+    k = 1
+    while p.next is not None and k < position - 1:
+      p = p.next
+      k = k + 1
+    p.next = p.next.next
+    p.next.prev = p
+
+
 def main():
   print('********** LIST ***************')
   link_list = LinkList()
@@ -75,7 +102,15 @@ def main():
   print('** INSERT AT GIVEN POSITION **')
   link_list.insert_after(25, 4)
   link_list.traverse()
-
+  print('****** DELETE FROM END *******')
+  link_list.delete_from_end()
+  link_list.traverse()
+  print('**** DELETE FROM STARTING *****')
+  link_list.delete_from_starting()
+  link_list.traverse()
+  print('** DELETE FROM GIVEN POSITION **')
+  link_list.delete_from_given_position(3)
+  link_list.traverse()
 
 if __name__ == '__main__':
   main()
