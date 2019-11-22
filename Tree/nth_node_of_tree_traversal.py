@@ -7,6 +7,7 @@ class Node:
 class Tree:
   def __init__(self):
     self.root = None
+    self.count = 0
 
   def createTree(self):
     n1 = Node(10)
@@ -26,11 +27,27 @@ class Tree:
       self.treeTraversaPreOrder(root.left)
       self.treeTraversaPreOrder(root.right)
 
-  def treeTraversalInOrder(self, root):
+  def NthNodeOfPreOrderTraversal(self, root, n):
+    if root:
+      self.count = self.count + 1
+      if self.count == n:
+        print(root.info)
+      self.NthNodeOfPreOrderTraversal(root.left, n)
+      self.NthNodeOfPreOrderTraversal(root.right, n)
+       
+  def treeTraversalInOrder(self, root):    
     if root:
       self.treeTraversalInOrder(root.left)
       print(root.info)
       self.treeTraversalInOrder(root.right)
+
+  def NthNodeOfInOrderTraversal(self, root, n):
+    if root:
+      self.NthNodeOfInOrderTraversal(root.left, n)
+      self.count = self.count + 1
+      if self.count == n:
+        print(root.info)
+      self.NthNodeOfInOrderTraversal(root.right, n)
 
   def treeTraversalPostOrder(self, root):
     if root:
@@ -38,17 +55,14 @@ class Tree:
       self.treeTraversalPostOrder(root.right)
       print(root.info)
 
-  def levelOrderTraversal(self, root):
-    que = []
-    temp_node = root
-    que.append(root)
-    while len(que):
-      temp_node = que.pop(0)
-      print(temp_node.info)
-      if temp_node.left is not None:
-        que.append(temp_node.left)
-      if temp_node.right is not None:
-        que.append(temp_node.right)
+  def NthNodeOfPostOrderTraversal(self, root, n):
+    if root:
+      self.NthNodeOfPostOrderTraversal(root.left, n)
+      self.NthNodeOfPostOrderTraversal(root.right, n)
+      self.count = self.count + 1
+      if self.count == n:
+        print(root.info)
+
 
 def main():
   print('***************** TREE ******************\n')
@@ -56,13 +70,21 @@ def main():
   t.createTree()
   print('********** PREORDER TRAVERSAL ***********')
   t.treeTraversaPreOrder(t.root)
+
+  print('********** PREORDER TRAVERSAL Nth ************')
+  t.NthNodeOfPreOrderTraversal(t.root, 3)
+
   print('********** INORDER TRAVERSAL ************')
   t.treeTraversalInOrder(t.root)
+  t.count = 0
+  print('********** INORDER TRAVERSAL Nth ************')
+  t.NthNodeOfInOrderTraversal(t.root, 3)
+
   print('********** POSTORDER TRAVERSAL **********')
   t.treeTraversalPostOrder(t.root)
-  print('********* LEVEL ORDER TRAVERSAL **********')
-  t.levelOrderTraversal(t.root)
-
+  t.count = 0
+  print('********** POSTORDER TRAVERSAL Nth ************')
+  t.NthNodeOfPostOrderTraversal(t.root, 3)
 
 if __name__ == '__main__':
   main()
