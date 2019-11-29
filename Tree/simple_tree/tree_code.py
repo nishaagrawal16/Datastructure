@@ -38,6 +38,22 @@ class Tree:
       self.treeTraversalPostOrder(root.right)
       print(root.info)
 
+  # Description:
+  # Level order traversal of tree.
+  #
+  # Approach:
+  # Uses DFS traversal approach.
+  # 1. Prints current node data.
+  # 2. enqueue's both left and right child.
+  # 3. dequeue a node from queue.
+  # 4. Execute while queue is not empty.
+  #
+  # Reference:
+  # https://www.geeksforgeeks.org/?p=2686
+  #
+  # Complexity:
+  # O(n), n is number of node in tree. Requires extra space to maintain queue.
+  #/
   def levelOrderTraversal(self, root):
     que = []
     temp_node = root
