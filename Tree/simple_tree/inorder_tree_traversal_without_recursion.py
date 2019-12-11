@@ -6,6 +6,8 @@
 #      b) Print the popped item, set current = popped_item->right 
 #      c) Go to step 3.
 # 5) If current is NULL and stack is empty then we are done.
+# O(n)
+
 
 class Node:
   def __init__(self, value):
@@ -54,3 +56,11 @@ def main():
 
 if __name__ == '__main__':
   main()
+
+
+# Output:
+# -------
+# ***************** TREE ******************
+# 
+# ********** INORDER TRAVERSAL ************
+# 40 20 50 10 30

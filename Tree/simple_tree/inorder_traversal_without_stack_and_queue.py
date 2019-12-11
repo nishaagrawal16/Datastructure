@@ -7,6 +7,8 @@
 #       a) Make current as the right child of the rightmost 
 #          node in current's left subtree
 #       b) Go to this left child, i.e., current = current->left
+# O(n)
+
 
 class Node:
   def __init__(self, value):
@@ -63,3 +65,11 @@ def main():
 
 if __name__ == '__main__':
   main()
+
+
+# Output:
+# -------
+# ***************** TREE ******************
+# 
+# ********** INORDER TRAVERSAL ************
+# 40 20 50 10 30

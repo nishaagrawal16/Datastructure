@@ -4,6 +4,9 @@
 #     / \     \
 #    4  5      6
 # Need to ask the complexity
+# O(n)
+
+
 class Node:
   def __init__(self, data):
     self.data = data
@@ -56,5 +59,19 @@ def main():
   print('********** INORDER TRAVERSAL ************')
   t.treeTraversalInOrder(root)
 
+
 if __name__ == '__main__':
   main()
+
+
+# Output:
+# -------
+# **************** TREE ******************
+# returned data:  4
+# returned data:  5
+# returned data:  2
+# returned data:  6
+# returned data:  3
+# returned data:  1
+# ********** INORDER TRAVERSAL ************
+# 4 2 5 1 3 6

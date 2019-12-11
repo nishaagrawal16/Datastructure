@@ -1,3 +1,10 @@
+#         10
+#       /   \
+#      20   30
+#     / \     
+#    40 50     
+# O(n)
+
 class Node:
   def __init__(self, value):
     self.info = value
@@ -82,3 +89,33 @@ def main():
 
 if __name__ == '__main__':
   main()
+
+
+# Output:
+# ------  
+# ***************** TREE ******************
+# 
+# ********** PREORDER TRAVERSAL ***********
+# 10
+# 20
+# 40
+# 50
+# 30
+# ********** INORDER TRAVERSAL ************
+# 40
+# 20
+# 50
+# 10
+# 30
+# ********** POSTORDER TRAVERSAL **********
+# 40
+# 50
+# 20
+# 30
+# 10
+# ********* LEVEL ORDER TRAVERSAL **********
+# 10
+# 20
+# 30
+# 40
+# 50

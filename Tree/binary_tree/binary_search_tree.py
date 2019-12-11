@@ -15,6 +15,11 @@
 # If BST is not balanced (or skwed trees), it becomes a linked list and all
 # operations take O(n) complexity. This problem is handled by balancing trees.
 # AVL, Red-black, B trees are examples of balanced trees.
+#         50
+#       /   \
+#      30    70
+#     / \    / \
+#    20 40  60 80
 
 class Node:
   def __init__(self, value):
@@ -93,7 +98,7 @@ class Tree:
     return current
     
 def main():
-  print('***************** TREE ******************\n')
+  print('*****************BINARY TREE ************\n')
   t = Tree()
   t.root = Node(50)
   t.insert(t.root, Node(30))
@@ -133,11 +138,38 @@ if __name__ == '__main__':
 
 # Output:
 # ------
+# *****************BINARY TREE ************
+# 
 # ********** INORDER TRAVERSAL ************
 # 20
 # 30
 # 40
 # 50
+# 60
+# 70
+# 80
+# ************** SEARCHING ****************
+# value found
+# ************** DELETION 20 ***************
+# ********** INORDER TRAVERSAL *************
+# 30
+# 40
+# 50
+# 60
+# 70
+# 80
+# ************** SEARCHING *****************
+# value found
+# ************** DELETION 30****************
+# ********** INORDER TRAVERSAL *************
+# 40
+# 50
+# 60
+# 70
+# 80
+# ************** DELETION 50****************
+# ********** INORDER TRAVERSAL *************
+# 40
 # 60
 # 70
 # 80

@@ -3,6 +3,8 @@
 #      2     3
 #     / \     \
 #    4  5      6
+# O(n)
+
 
 class Node:
   def __init__(self, data):
@@ -69,5 +71,21 @@ def main():
   else:
     print 'No'
 
+
 if __name__ == '__main__':
   main()
+
+
+# Output:
+# -------
+# **************** TREE ******************
+# returned data:  4
+# returned data:  5
+# returned data:  2
+# returned data:  6
+# returned data:  3
+# returned data:  1
+# ********** INORDER TRAVERSAL ************
+# 4 5 2 6 3 1 
+# Given Preorder, Inorder and Postorder traversals are of same tree
+# Yes

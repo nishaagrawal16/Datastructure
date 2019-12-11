@@ -36,11 +36,23 @@ def main():
     print 'Preorder and inorder is not of the same tree'
     return
   print('********** PREORDER TRAVERSAL ***********')
-  print preorder
+  print 'Preorder: ', preorder
   print('********** INORDER TRAVERSAL ************')
-  print inorder
+  print 'Inorder: ', inorder
   print('********** POSTORDER TRAVERSAL **********')
   printPostOrder(preorder, inorder, n)
 
+
 if __name__ == '__main__':
   main()
+
+
+# Output:
+# -------
+# 
+# ********** PREORDER TRAVERSAL ***********
+# Preorder:  [1, 2, 4, 5, 3, 6]
+# ********** INORDER TRAVERSAL ************
+# Inorder:  [4, 2, 5, 1, 3, 6]
+# ********** POSTORDER TRAVERSAL **********
+# 4 5 2 6 3 1

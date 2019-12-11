@@ -1,3 +1,10 @@
+#         10
+#       /   \
+#      20   30
+#     / \     
+#    40 50     
+# O(n)
+
 class Node:
   def __init__(self, value):
     self.info = value
@@ -71,20 +78,51 @@ def main():
   print('********** PREORDER TRAVERSAL ***********')
   t.treeTraversaPreOrder(t.root)
 
-  print('********** PREORDER TRAVERSAL Nth ************')
+  print('********** PREORDER TRAVERSAL 3rd ************')
   t.NthNodeOfPreOrderTraversal(t.root, 3)
 
   print('********** INORDER TRAVERSAL ************')
   t.treeTraversalInOrder(t.root)
   t.count = 0
-  print('********** INORDER TRAVERSAL Nth ************')
+  print('********** INORDER TRAVERSAL 3rd ************')
   t.NthNodeOfInOrderTraversal(t.root, 3)
 
   print('********** POSTORDER TRAVERSAL **********')
   t.treeTraversalPostOrder(t.root)
   t.count = 0
-  print('********** POSTORDER TRAVERSAL Nth ************')
+  print('********** POSTORDER TRAVERSAL 3rd ************')
   t.NthNodeOfPostOrderTraversal(t.root, 3)
+
 
 if __name__ == '__main__':
   main()
+
+
+# Output:
+# ------
+# ***************** TREE ******************
+# 
+# ********** PREORDER TRAVERSAL ***********
+# 10
+# 20
+# 40
+# 50
+# 30
+# ********** PREORDER TRAVERSAL 3rd ************
+# 40
+# ********** INORDER TRAVERSAL ************
+# 40
+# 20
+# 50
+# 10
+# 30
+# ********** INORDER TRAVERSAL 3rd ************
+# 50
+# ********** POSTORDER TRAVERSAL **********
+# 40
+# 50
+# 20
+# 30
+# 10
+# ********** POSTORDER TRAVERSAL 3rd ************
+# 20

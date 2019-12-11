@@ -6,6 +6,8 @@
 #   b. Traverse two nodes in the list, add them as children of the current parent.
 #   c. Enqueue the two nodes into the queue.
 # O(n)
+
+
 class Node:
   def __init__(self, value):
     self.info = value
@@ -72,12 +74,12 @@ def create_tree(start):
     parent.left = left_child
     parent.right = right_child
     
-  print('*********** TRAVERSE Tree ***************') 
+  print('*********** TRAVERSE TREE ***************') 
   t.treeTraversalInOrder(t.root)
 
 def main():
   link_list = SingleLinkList()
-  print('*********** CREATING LIST ***************')
+  print('*********** CREATE LIST *****************')
   link_list.create_list()
   print('*********** TRAVERSE LIST ***************')
   link_list.traverse()
@@ -86,3 +88,12 @@ def main():
 
 if __name__ == '__main__':
   main()
+
+
+# Output:
+# -------
+# *********** CREATE LIST *****************
+# *********** TRAVERSE LIST ***************
+# 10 20 30 40 50 None
+# *********** TRAVERSE TREE ***************
+# 40 20 50 10 30

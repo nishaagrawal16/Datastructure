@@ -1,6 +1,13 @@
-# Print Right View of a Binary Tree
+# Print Right View of a Binary Tree (Last node of every levels)
 # https://www.geeksforgeeks.org/print-right-view-binary-tree-2/
+#
+#         10
+#       /   \
+#      20   30
+#     / \     
+#    40 50     
 # O(n)
+
 class Node:
   def __init__(self, value):
     self.info = value
@@ -55,7 +62,16 @@ def main():
   t.viewRight(t.root)
   
 
-
-
 if __name__ == '__main__':
   main()
+
+
+# Output:
+# -------
+# 
+# ***************** TREE ******************
+# 
+# ********** INORDER TRAVERSAL ************
+# 40 20 50 10 30 
+# ************* RIGHT VIEW ***************
+# 10 30 50
