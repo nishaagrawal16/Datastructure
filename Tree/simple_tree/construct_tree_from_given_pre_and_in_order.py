@@ -3,8 +3,11 @@
 #      2     3
 #     / \     \
 #    4  5      6
-# Need to ask the complexity
-# O(n)
+#
+# For N nodes, same function is called around N times and each call
+# to that function uses <>.index(...) which again takes O(N) so
+# effectively complexity is O(N^2)
+# O(n2)
 
 
 class Node:

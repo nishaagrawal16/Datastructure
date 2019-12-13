@@ -3,6 +3,9 @@
 #      2     3
 #     / \     \
 #    4  5      6
+# For N nodes, same function is called around N times and each call
+# to that function uses <>.index(...) which again takes O(N) so
+# effectively complexity is O(N^2)
 # O(n2)
 
 def printPostOrder(preorder, inorder, n):
