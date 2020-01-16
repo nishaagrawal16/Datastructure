@@ -7,6 +7,11 @@
 #       a) Make current as the right child of the rightmost 
 #          node in current's left subtree
 #       b) Go to this left child, i.e., current = current->left
+#         10
+#       /   \
+#      20   30
+#     / \     
+#    40 50 
 # O(n)
 
 

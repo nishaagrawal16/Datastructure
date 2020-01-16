@@ -34,25 +34,25 @@ class Tree:
       print root.info,
       self.treeTraversalInOrder(root.right)
 
-  # Computes the number of nodes in tree 
-  def size(self, root): 
-    if root is None: 
-      return 0 
-    
-    q = []
-    count = 1
-    q.append(root)
-    while len(q):
-      root = q.pop(0)
-      if root.left:
-        q.append(root.left)
-        count = count + 1
-    
-      if root.right:
-        q.append(root.right)
-        count = count + 1
+# Computes the number of nodes in tree 
+def size(root): 
+  if root is None: 
+    return 0 
+  
+  q = []
+  count = 1
+  q.append(root)
+  while len(q):
+    root = q.pop(0)
+    if root.left:
+      q.append(root.left)
+      count = count + 1
+  
+    if root.right:
+      q.append(root.right)
+      count = count + 1
 
-    return count
+  return count
 
 
 def main():
@@ -62,8 +62,8 @@ def main():
   print('********** INORDER TRAVERSAL ************')
   t.treeTraversalInOrder(t.root)
   print('\n************* TREE SIZE ***************')
-  size = t.size(t.root)
-  print(size)
+  print(size(t.root))
+
 
 if __name__ == '__main__':
   main()

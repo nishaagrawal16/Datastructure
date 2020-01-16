@@ -5,6 +5,7 @@
 #   a. Dequeue one node from the queue. This is the current parent.
 #   b. Traverse two nodes in the list, add them as children of the current parent.
 #   c. Enqueue the two nodes into the queue.
+# 10 -> 20 -> 30 -> 40 -> 50 -> None
 # O(n)
 
 

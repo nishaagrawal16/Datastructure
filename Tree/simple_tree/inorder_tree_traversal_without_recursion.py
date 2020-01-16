@@ -6,6 +6,11 @@
 #      b) Print the popped item, set current = popped_item->right 
 #      c) Go to step 3.
 # 5) If current is NULL and stack is empty then we are done.
+#         10
+#       /   \
+#      20   30
+#     / \     
+#    40 50 
 # O(n)
 
 
