@@ -2,11 +2,11 @@
 # Print Bottom View of a Binary Tree (Last node of every Vertical levels)
 # https://www.geeksforgeeks.org/bottom-view-binary-tree/
 #
-#         10
-#       /   \
-#      20   30
-#     / \     
-#    40 50     
+#        10
+#       /  \
+#      20  30
+#     /  \     
+#    40  50     
 # O(n)
 
 class Node:
@@ -41,16 +41,14 @@ class Tree:
   def viewBottom(self, root):
     if root is None:
       return
-
     q = []
     m = dict()
     hd = 0
     root.hd = hd
     q.append(root)
     while len(q):
-      root = q[0]
+      root = q.pop(0)
       hd = root.hd
-
       # Overwrite hd values with new value for getting the bottom view.
       m[hd] = root.data
 
@@ -61,7 +59,6 @@ class Tree:
       if root.right:
         root.right.hd = hd + 1
         q.append(root.right)
-      q.pop(0)
 
     for key in sorted(m):
       print m[key]

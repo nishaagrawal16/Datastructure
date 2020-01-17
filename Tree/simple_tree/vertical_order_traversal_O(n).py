@@ -32,7 +32,6 @@ class Tree:
       print root.data,
       self.treeTraversalInOrder(root.right)
 
-
   def verticalOrderTraversal(self, root):
     if root is None:
       return
@@ -44,7 +43,7 @@ class Tree:
     q.append(root)
 
     while len(q):
-      root = q[0]
+      root = q.pop(0)
       hd = root.hd
 
       # Check hd is not present in dictionary, create a list
@@ -60,7 +59,6 @@ class Tree:
       if root.right:
         root.right.hd = hd + 1
         q.append(root.right)
-      q.pop(0)
 
     for key in sorted(m):
       for i in m[key]:

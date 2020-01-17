@@ -37,21 +37,17 @@ class Tree:
       print root.data,
       self.treeTraversalInOrder(root.right)
 
-
   def viewTop(self, root):
     if root is None:
       return
-
     q = []
     m = dict()
     hd = 0
     root.hd = hd
     q.append(root)
-
     while len(q):
-      root = q[0]
+      root = q.pop(0)
       hd = root.hd
-
       # Check hd is present in dictionary otherwise add it.
       if hd not in m:
         m[hd] = root.data
@@ -63,11 +59,9 @@ class Tree:
       if root.right:
         root.right.hd = hd + 1
         q.append(root.right)
-      q.pop(0)
     
     for key in sorted(m):
       print m[key],
-
 
 
 def main():

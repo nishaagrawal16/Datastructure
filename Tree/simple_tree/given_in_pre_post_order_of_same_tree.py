@@ -65,11 +65,10 @@ def main():
   print('********** INORDER TRAVERSAL ************')
   post_order = []
   t.treeTraversalPostOrder(root, post_order)
-  print('\nGiven Preorder, Inorder and Postorder traversals are of same tree')
   if post_order == postorder:
-    print 'Yes'
+    print('\nGiven Preorder, Inorder and Postorder traversals are of same tree')
   else:
-    print 'No'
+    print('\nGiven Preorder, Inorder and Postorder traversals are not of same tree')
 
 
 if __name__ == '__main__':

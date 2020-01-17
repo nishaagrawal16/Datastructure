@@ -17,7 +17,7 @@
 # max --> Maximum horizontal distance from root
 # hd  --> Horizontal distance of current node from root
 # O(m*n)
-# Where m is th elength of min to max (range)
+# Where m is the length of min to max (range)
 # n is the number of nodes of tree
 # Note: For long tree 12 print before 9 (Not very efficient solution)
 
