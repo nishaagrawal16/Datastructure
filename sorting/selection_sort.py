@@ -24,10 +24,10 @@ def selection_sort(un_list):
     for j in range(i+1, n):
       if un_list[smallest_pos] > un_list[j]:
         smallest_pos = j
-    if smallest_pos:
-      temp = un_list[i]
-      un_list[i] = un_list[smallest_pos]
-      un_list[smallest_pos] = temp
+    # Swap the found minimum element with  
+    # the first element 
+    if smallest_pos != i:
+      un_list[i] , un_list[smallest_pos] = un_list[smallest_pos], un_list[i]
 
 def main():
   unsorted_list = [8, 5, 6, 9, 1, 4, 10, 3, 2, 7]
