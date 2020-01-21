@@ -1,6 +1,7 @@
 # ****************************************************
 # Find Given Number is Happy Number or not
 # Number will be Happy when sum of it's digits square is 1
+# https://www.geeksforgeeks.org/happy-number/
 # ****************************************************
 
 class Solution(object):
@@ -14,9 +15,9 @@ class Solution(object):
 
     if sum not in list1:
       list1.append(sum)
-      print 'sum:{} list:{}'.format(sum, list1)
+      print('sum:{} list:{}'.format(sum, list1))
     else:
-      print 'sum: ', sum
+      print('sum: ', sum)
       return 'Not Happy Number'
     return self.happy_number(sum, list1)
 
