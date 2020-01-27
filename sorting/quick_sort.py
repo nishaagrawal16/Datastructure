@@ -14,7 +14,7 @@ def partition(un_list, low, high):
   # Select the last element as pivot.
   pivot = un_list[high]
   for j in range(low, high):
-    # Elements wich are less than pivot will placed from starting of the list.
+    # Elements which are less than pivot will placed from starting of the list.
     if un_list[j] <= pivot:
       i = i + 1
       un_list[j], un_list[i] = un_list[i], un_list[j]
