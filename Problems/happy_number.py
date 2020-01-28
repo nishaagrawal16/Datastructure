@@ -21,7 +21,7 @@ class Solution(object):
       return 'Not Happy Number'
     return self.happy_number(sum, list1)
 
-def main():  
+def main():
   s = Solution()
   list1 = []
   pr = s.happy_number(123, list1)

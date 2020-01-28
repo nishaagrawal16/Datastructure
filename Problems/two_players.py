@@ -49,7 +49,7 @@ class Solution(object):
           p2_score = p2_score + 1
     print('P1 score= {} \nP2 score= {}'.format(p1_score, p2_score))  
 
-  # O(n)
+  # O(n) Here we need two flags, one for 'a' and another for 'x'.
   def count_max_score_optimize(self, str1):
     p1_score = 0
     p2_score = 0

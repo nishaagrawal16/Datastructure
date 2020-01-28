@@ -3,6 +3,7 @@
 # https://www.geeksforgeeks.org/longest-palindromic-substring-set-2/
 # We need to do check both even and odd palindrome.
 # O(n2)
+# Need to find different approach of O(n)
 
 class Solution(object):
     def longestPalindrome(self, s):
@@ -16,7 +17,7 @@ class Solution(object):
         low = 0
         high = 0
         for i in range(1, n):
-            # For even palindrome
+            # For even palindrome, we need to take adjacent numbers.
             low = i - 1
             high = i
             start, max_length = self.check_max_palindrome(s, low, high, n, max_length, start)

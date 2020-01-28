@@ -13,7 +13,7 @@ class Solution(object):
         curr_len = 0
         start = 0
         pos = {}
-        if  not len(given_str):
+        if not len(given_str): # String is empty
             return 0
         elif len(given_str) == 1:
             return given_str[0]
@@ -39,11 +39,10 @@ class Solution(object):
         # and update max_length and start accordingly.
         if max_length <= i - st:
             max_length = i - st + 1 # Need to increment by one for taking the
-            # last element "abcabcdefabefabcdefgh"
+            # last element h in "abcabcdefabefabcdefgh"
             start = st
         return given_str[start : start + max_length]     
      
-
 
 def main():
     str1 = "abaabcdefgh"

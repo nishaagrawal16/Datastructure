@@ -1,6 +1,7 @@
 # Not solved properly
 # Need to solve it as O(log(m+n))
 # https://leetcode.com/problems/median-of-two-sorted-arrays/
+# https://github.com/hansrajdas/algorithms/blob/master/Level-4/median_in_2_sorted_arrays.py
 
 class Solution(object):
   def findMedianSortedArrays(self, nums1, nums2):
