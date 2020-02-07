@@ -83,3 +83,10 @@ def main():
   
 if __name__ == '__main__':
   main()
+
+# Output:
+# -------
+# P1 score= 2 
+# P2 score= 1
+# P1 score= 2 
+# P2 score= 1

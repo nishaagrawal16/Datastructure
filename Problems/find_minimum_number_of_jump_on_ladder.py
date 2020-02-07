@@ -21,7 +21,7 @@ class Solution(object):
             else:
                 return arr                    
             arr.append(i)
-        return arr
+
 
 def main():  
     s = Solution()
