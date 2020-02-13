@@ -1,4 +1,4 @@
-# Check wether Loop is present or not
+# Check whether Loop is present or not
 # Total Element present in loop
 
 class Node:

@@ -1,3 +1,7 @@
+# Find the even number of nodes and odd nombers of node
+# Example:
+# even, even, Odd, odd, odd, poditions
+
 class Node:
   def __init__(self, value):
     self.info = value

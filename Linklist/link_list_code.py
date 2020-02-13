@@ -70,6 +70,7 @@ class SingleLinkList:
       return
     p = self.start
     travel = 1
+    # We are already at first position.
     while p.next is not None and travel < k-1:
       p = p.next
       travel = travel + 1
@@ -99,7 +100,13 @@ class SingleLinkList:
     if k > count:
       print('List is smaller than given number')
       return
+    if k == 0:
+      print('No need to delete the Node as no node found at given position')
+      return
     p = self.start
+    if k == 1:
+      self.start = p.next
+      return
     travel = 1
     while p.next is not None and travel < k-1:
       p = p.next
@@ -111,29 +118,28 @@ class SingleLinkList:
       print('List is empty')
       return
     p = self.start
+    if p.info == value:
+      self.start = p.next
+      return
     found = False
     while p.next is not None:
       if p.next.info == value:
         found = True
-        break;
+        break
       p = p.next
     if not found:
       print('element not found in the list')
       return
     p.next = p.next.next
 
-
   def nthNode(self, k):
     p = self.start
     temp = self.start
-    length = 0
-    while temp is not None:
-      temp = temp.next
-      length += 1
+    length = self.countNodes()
     if k > length:
       print('K is more than length of the link list')      
     i = 1
-    while p is not None and i< k:
+    while p is not None and i < k:
       i = i + 1
       p = p.next
     if p is not None:
@@ -142,15 +148,12 @@ class SingleLinkList:
   def nthNodeFromLast(self, k):
     p = self.start
     temp = self.start
-    length = 0
-    while temp is not None:
-      temp = temp.next
-      length += 1
+    length = self.countNodes()
     newK = length - k + 1
     if newK > length:
       print('K is more than length of the link list')      
     i = 1
-    while p is not None and i< newK:
+    while p is not None and i < newK:
       i = i + 1
       p = p.next
     if p is not None:
@@ -197,7 +200,7 @@ print('*********** INSERT- AT END **************')
 link_list.insertEnd(55)
 link_list.traverse()
 
-print('*********** INSERT- AT Kth LOCATION *****')
+print('*********** INSERT- AT 4th LOCATION *****')
 link_list.insertBetween(25, 4)
 link_list.traverse()
 
@@ -209,7 +212,7 @@ print('*********** DELETE- FROM BEGNING ********')
 link_list.deleteFromBeg()
 link_list.traverse()
 
-print('*********** DELETE- AT Kth LOCATION *****')
+print('*********** DELETE- FROM 3rd LOCATION *****')
 link_list.deleteFromBetween(3)
 link_list.traverse()
 
