@@ -1,4 +1,4 @@
-# Check wether Loop is present or not
+# Check whether Loop is present or not
 # Find the starting point of the loop
 # Input:
 # 10 -> 20 -> 30 -> 40 -> 50 -> 60 -> 40 -> 50 ->60 -> 40 -> 50...
@@ -26,7 +26,7 @@ class LinkList:
     n3.next = n4
     n4.next = n5
     n5.next = n6
-    n6.next = n4
+    n6.next = n3
     self.start = n1
 
   def traverse(self):

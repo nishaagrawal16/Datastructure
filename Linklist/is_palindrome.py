@@ -1,7 +1,8 @@
-# we solve this problem using recurson in which left and right two pointer point to the start of the node.
-# then call isPalindrome(left, right.next) untill right will become None
-# check left.info == right.info after returning from None to the right pointer. Right pointer will go from null to 1 node
-# TODO
+# We solve this problem using recurson in which left and right two pointer
+# point to the start of the node. Then call isPalindrome(left, right.next)
+# untill right will become None. Check left.info == right.info after returning
+# from None to the right pointer. Right pointer will go from null to 1st node.
+
 class Node:
   def __init__(self, value):
     self.info = value

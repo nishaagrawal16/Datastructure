@@ -1,4 +1,6 @@
+# Remove duplicacy in sorted link list.
 # O(n)
+
 class Node:
   def __init__(self, value):
     self.info = value
@@ -41,3 +43,9 @@ link_list.traverse()
 print('****** AFTER REMOVE DUPLICATE ELEMENTS *********')
 link_list.remove_duplicate_elements()
 link_list.traverse()
+
+# Output:
+# -------
+# 1 ->  1 ->  2 ->  3 ->  3 ->  None
+# ****** AFTER REMOVE DUPLICATE ELEMENTS *********
+# 1 ->  2 ->  3 ->  None

@@ -1,3 +1,6 @@
+# Remove duplicacy in unsorted list
+# O(n)
+
 class Node:
   def __init__(self, value):
     self.info = value

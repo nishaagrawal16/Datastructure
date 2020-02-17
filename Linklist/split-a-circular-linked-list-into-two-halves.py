@@ -76,8 +76,7 @@ def main():
   circular_linklist1.traverse()
   print('************************ 2nd List *********************')
   circular_linklist2.traverse()
-  
-  
+   
 
 if __name__ == '__main__':
   main()

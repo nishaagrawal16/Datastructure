@@ -1,5 +1,7 @@
-# we solve this problem by using stack in which slow and fast two pointer point to the start of the node.
-# then move slow pointer once and store slow.info in the stack and fast pointer 2 times.
+# We solve this problem by using stack in which slow and fast two pointer point
+# to the start of the node. Then move slow pointer once and store slow.info in
+# the stack and fast pointer 2 times.
+
 class Node:
   def __init__(self, value):
     self.info = value
@@ -36,7 +38,7 @@ class SingleLinkList:
     # For odd number of element in list we have to ignore
     # the middle element. So need to move to the slow by next.
     if fast is not None:
-      slow = slow.next    
+      slow = slow.next
     while stack:
       if stack.pop() != slow.info:
         print('Not Palindrome')
