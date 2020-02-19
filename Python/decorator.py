@@ -44,13 +44,13 @@ def decoWrapper4(a, b):
     def xyz(func):
         def abc(name):
             print('start', a, b)
-            func(name, a)
+            func(name)
         return abc
     return xyz
 
 @decoWrapper4(10, 20)
-def print_hello4(name, a):
-    print('Hello', name, a)
+def print_hello4(name):
+    print('Hello', name)
 
 print('***** decorator with arguments and function with one argument *******')
 print_hello4('nisha')

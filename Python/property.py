@@ -1,5 +1,10 @@
 # Type-1
 # property(fget=None, fset=None, fdel=None, doc=None)
+# Return value from property()
+# The property() method returns a property attribute from the given getter, setter and deleter.
+# 1) If no arguments are given, property() method returns a base property attribute that doesn't contain any getter, setter or deleter.
+# 2) If doc isn't provided, property() method takes the docstring of the getter function.
+
 class Person(object):
     def __init__(self, name):
         self._name = name
