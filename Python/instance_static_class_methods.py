@@ -63,3 +63,9 @@ print(A.f(1, 7))
 # <class 'method'>
 # False
 # True
+
+
+# Difference between   python2 and python 3
+# A.instance_method    unbound     function
+# A.class_method       Bound       Bound
+# A.static_method      function    function
