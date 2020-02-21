@@ -1,6 +1,7 @@
-# Union of two sorted linklist
-# Intersection of two sorted linklist
+# Union of two sorted linklist with distinct elements.
+# Intersection of two sorted linklist.
 # o(m+n)
+
 class Node:
   def __init__(self, value):
     self.info = value

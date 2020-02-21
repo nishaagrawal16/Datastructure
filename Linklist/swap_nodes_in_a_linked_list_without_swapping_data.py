@@ -2,6 +2,7 @@
 # SWAP x, Y
 # Swap all pairs
 # move-last-element-to-front-of-a-given-linked-list
+
 class Node:
   def __init__(self, value):
     self.info = value
