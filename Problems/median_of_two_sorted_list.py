@@ -106,7 +106,7 @@ def main():
   # nums2 = [1]
   s = Solution()
   median = s.findMedianSortedArrays(nums1, nums2)
-  print 'median: ', median
+  print('median: ', median)
 
 if __name__ == '__main__':
   main()

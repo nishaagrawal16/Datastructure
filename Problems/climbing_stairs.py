@@ -3,6 +3,13 @@
 # Each time you can either climb 1 or 2 steps.
 # In how many distinct ways can you climb to the top? 
 # https://leetcode.com/problems/climbing-stairs/solution/
+# Example:
+#       5
+# 1+1+1+1+1, 2+1+1+1, 2+2+1
+#            1+2+1+1, 1+2+2
+#            1+1+2+1, 2+1+2
+#            1+1+1+2,
+# total 8 ways
 
 class Solutions:
   # Approach1: Dynamic Programming

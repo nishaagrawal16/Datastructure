@@ -18,17 +18,17 @@ def countKdivPairs(A, n, K):
     print(freq)
     # Find the combination nC2 = n(n-1)/2  
     # If both pairs are divisible by 'K' 
-    # oth position contain the count of whose numbers which are completly by k.
+    # oth position contain the count of whose numbers which are completely divisible by k.
     sum = freq[0] * (freq[0] - 1) / 2
       
     # count for all i and (k-i) 
-    # freq pairs 
+    # freq pairs (pair are from 1st to k-1 elements, 2nd to k-2 and so on)
     i = 1
     while i <= K//2 and i != (K - i): 
         sum += freq[i] * freq[K-i] 
         i+= 1
    
-    # If K is even: for example pair 2,2
+    # If K is even for example 4: pair should be = 2,2
     if K % 2 == 0: 
         sum += (freq[K//2] * (freq[K//2]-1)/2)      
     return int(sum) 
@@ -38,3 +38,8 @@ A = [2, 2, 1, 7, 5, 3]
 n = len(A) 
 K = 4
 print(countKdivPairs(A, n, K))
+
+# Output:
+# -------
+# [0, 2, 2, 2]
+# 5

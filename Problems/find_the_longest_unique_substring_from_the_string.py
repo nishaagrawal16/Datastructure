@@ -1,9 +1,6 @@
-# 23-01-2020
+# Date: 23-01-2020
 # https://www.geeksforgeeks.org/print-longest-substring-without-repeating-characters/
-# find and print longest  
-# substring without repeating characters.  
-# Function to find and print longest  
-# substring without repeating characters.
+# find and print longest substring without repeating characters.
 # O(n)  
 
 class Solution(object):

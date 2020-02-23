@@ -1,6 +1,10 @@
 # Find sum of a[i]%a[j] for all valid pairs
 # https://www.geeksforgeeks.org/find-sum-of-aiaj-for-all-valid-pairs/
 # li is unsorted
+# Input: arr[] = {1, 2, 3}
+# Output: 5
+# (1 % 1) + (1 % 2) + (1 % 3) + (2 % 1) + (2 % 2)
+# + (2 % 3) + (3 % 1) + (3 % 2) + (3 % 3) = 5
 
 class Solutions:
   def sum_of_mod(self, li):
@@ -14,6 +18,7 @@ class Solutions:
     # Means 0%n = 0
     for i in range(1, len(count)):
       for j in range(1, len(count)):
+        # print(i, j, count[i], count[j])
         result += count[i]*count[j]*(i%j)
     return result
      

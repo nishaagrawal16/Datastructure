@@ -5,6 +5,7 @@
 # and P2 has 'x'. P1 needs to delete aa and aaa and save only one character.
 # Simlarly P2 needs to do this for x character.
 # O(n)
+# Boston Consulting group (BCG)
 # ****************************************************************************
 
 

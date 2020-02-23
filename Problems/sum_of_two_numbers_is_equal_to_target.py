@@ -27,8 +27,8 @@ def main():
   s = Solution()
   nums = [2, 5, 6, 3, 4]
   n1, n2 = s.sum_of_number(nums, 10)
-  print 'Target: ', 10
-  print 'numbers are: {} , {}'.format(nums[n1], nums[n2])
+  print('Target: ', 10)
+  print('numbers are: {} , {}'.format(nums[n1], nums[n2]))
   
   n1, n2 = s.sum_of_numbers_dict(nums, 10)
   print 'Target: ', 10

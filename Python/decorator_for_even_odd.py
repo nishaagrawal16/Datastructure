@@ -1,3 +1,5 @@
+# Write a decorator for a function which returns a number between 1 to 100
+# check whether the returned number is even or odd in decorator function.
 import random
 
 def decoCheckNumber(func):

@@ -19,7 +19,7 @@ class Solution(object):
         while(x):
             sum = sum * 10
             rem = x % 10
-            x = x / 10
+            x = x // 10 # python2 x/10
             sum = sum + rem
       
         if num1 < 0:

@@ -5,7 +5,7 @@
 #               We follow the DLR or depth-first left to right In which we first go
 #               to the parent and grand parent if available than left to right.
 #
-# 2) New Style Python(3.x & 2.2) : Where object is the parent class or either
+# 2) New Style Python(3.x & 2.3) : Where object is the parent class or either
 #   in python 2 or python3. We follow the depth firth left to right with good
 #   head concept as well as C3 linearization algorithm for getting the right
 #   mro concept.

@@ -12,7 +12,7 @@
 # Input: 10
 # Output: false
 # Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
-# Coud you solve it without converting the integer to a string?
+# Could you solve it without converting the integer to a string?
 # O(n)
 
 class Solution(object):
@@ -28,7 +28,7 @@ class Solution(object):
         while(x):
           sum = sum * 10
           rem = x % 10
-          x = x / 10
+          x = x // 10
           sum = sum + rem
         if sum == num:
             return True
@@ -36,9 +36,9 @@ class Solution(object):
 
 def main():  
     s = Solution()
-    print(s.isPalindrome(-121))
+    # print(s.isPalindrome(-121))
     print(s.isPalindrome(121))
-    print(s.isPalindrome(10))
+    # print(s.isPalindrome(10))
 
 if __name__ == '__main__':
     main()
