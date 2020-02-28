@@ -1,11 +1,46 @@
+import sys
 import webapp2
+import mysql.connector
+from mysql.connector import Error
 class userInfo(webapp2.RequestHandler):
     def get(self):
-        print('I am here')
-        # form_data = json.loads(self.request.body)
+        print('User Info')
+        try:
+            connection = mysql.connector.connect(host='localhost',
+                                                 database='temp',
+                                                 user='root',
+                                                 password='root')
+            print('connection: ', connection)
+            if connection.is_connected():
+                db_Info = connection.get_server_info()
+                print("Connected to MySQL Server version ", db_Info)
+                cursor = connection.cursor()
+                cursor.execute("select database();")
+                record = cursor.fetchone()
+                print("You're connected to database: ", record)
+                # sql = "INSERT INTO employe (name, id) VALUES (%s, %s)"
+                # val = ("John", "2")
+                # cursor.execute(sql, val)
+                sql = "DELETE FROM employe WHERE id=2"
+                cursor.execute(sql)
+                connection.commit()
+                print(cursor.rowcount, "record inserted.")
+                cursor.execute("SELECT * FROM employe")
+                myresult = cursor.fetchall()
+                for x in myresult:
+                    print(x)
+
+        except Error as e:
+            print("Error while connecting to MySQL", e)
+        finally:
+            if (connection.is_connected()):
+                cursor.close()
+                connection.close()
+                print("MySQL connection is closed")
         self.response.headers.add_header('Access-Control-Allow-Origin', '*')
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write('Nisha Agrawal')
+        sys.stdout.flush()
 
 # """This module provides generic utility functions for handling API requests."""
 # 
