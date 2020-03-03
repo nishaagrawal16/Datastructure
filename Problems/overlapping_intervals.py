@@ -1,38 +1,40 @@
-# TODO
-
+# Given a collection of intervals, merge all overlapping intervals.
+# Example 1:
+# Input: [[1,3],[2,6],[8,10],[15,18]]
+# Output: [[1,6],[8,10],[15,18]]
+# Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].
+# Example 2:
+# Input: [[1,4],[4,5]]
+# Output: [[1,5]] 
+# Explanation: Intervals [1,4] and [4,5] are considered overlapping.
+# O(n)
+# Need to sort it 
 class Solutions:
-  def overlapping(self, li):
-    l2 = []
-    i = 0
-    j = 0
-    n = len(li)
-    while i < n:
-      flag = 0
-      print('nishaa', j)
-      while j < len(li) - 1:
-        print('j: ', j, li[j][1])
-        if li[j][1] >= li[j+1][0]:
-          flag = 1
-          new_elem = [li[j][0], li[j+1][1]]
-          del li[j]
-          del li[j]
-          print('after del: ', li, j)
-          li.insert(j, new_elem)
-          j += 2
-        else:
-          j += 1
-      i = i + 1
-      print(li)
-      if flag == 0:
-        break
+    def overlapping(self, intervals):
+        j = 0
+        while j < len(intervals) - 1:
+            if intervals[j][1] >= intervals[j+1][0]:
+                flag = 1
+                new_elem = [intervals[j][0], intervals[j+1][1]]
+                del intervals[j]
+                del intervals[j]
+                intervals.insert(j, new_elem)
+            else:
+                j += 1
+
+    def sort_intervals(self, intervals):
+        j = 0
+        while j < len(intervals):
+            if Intervals[j] > intervals[j+1]:
+                
+
 
 def main():
-  s = Solutions()
-  # li = [[1,3],[2,6],[8,10],[15,18]]
-  # li = [[1,3],[2,6]]
-  # li = [[1,4],[4,5]]
-  li = [[1,3],[2,9],[8,16],[15,18]]
-  s.overlapping(li)
+    s = Solutions()
+    intervals = [[1,3],[2,6],[8,10],[15,18]]
+    s.sort_intervals(intervals)
+    intervals = s.overlapping(intervals)
+    print('final intervals: ', intervals)
 
 if __name__ == '__main__':
   main()
