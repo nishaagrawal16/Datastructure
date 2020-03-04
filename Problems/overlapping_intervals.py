@@ -8,7 +8,7 @@
 # Output: [[1,5]] 
 # Explanation: Intervals [1,4] and [4,5] are considered overlapping.
 # O(n)
-# Need to sort it 
+
 class Solutions:
     def overlapping(self, intervals):
         j = 0
@@ -22,17 +22,11 @@ class Solutions:
             else:
                 j += 1
 
-    def sort_intervals(self, intervals):
-        j = 0
-        while j < len(intervals):
-            if Intervals[j] > intervals[j+1]:
-                
-
+        return intervals
 
 def main():
     s = Solutions()
     intervals = [[1,3],[2,6],[8,10],[15,18]]
-    s.sort_intervals(intervals)
     intervals = s.overlapping(intervals)
     print('final intervals: ', intervals)
 
