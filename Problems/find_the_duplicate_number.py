@@ -1,20 +1,22 @@
-# duplicates in O(n) time  
-# Function to print duplicates 
-def printRepeating(arr, size): 
-      
-    print("The repeating elements are: ") 
-      
-    for i in range(0, size): 
-        print('arr: ', arr)  
-        if arr[abs(arr[i])] >= 0: 
-            arr[abs(arr[i])] = -arr[abs(arr[i])] 
-        else: 
-            print (abs(arr[i])) 
-              
-# Driver code 
-arr = [1, 2, 3, 1, 3, 6, 6, 3] 
-arr_size = len(arr) 
+# Find duplicate number
+# https://www.geeksforgeeks.org/find-duplicates-in-on-time-and-constant-extra-space/
+# O(n)
+
+class Solutions:
+    def printRepeating(self, nums):
+        if len(nums) == 0:
+            return
+        for i in range(len(nums)):
+            if nums[abs(nums[i])] >= 0:
+                nums[abs(nums[i])] = -nums[abs(nums[i])] 
+            else: 
+                return abs(nums[i])
+
+def main():
+    # nums = [3, 1, 3, 4, 2]
+    nums = [1, 3, 4, 2, 2]
+    s = Solutions() 
+    print(s.printRepeating(nums))
   
-printRepeating(arr, arr_size) 
-  
-# This code is contributed by Shreyanshi Arun. 
+if __name__ == '__main__':
+    main()
