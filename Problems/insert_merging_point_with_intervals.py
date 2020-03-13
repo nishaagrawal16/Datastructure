@@ -8,7 +8,7 @@
 # This is because the new interval [4,9] overlaps with [3,5],[6,7],[8,10].
 # Make sure the returned intervals are also sorted.
 # O(n)
-# Your Input: 3 1 3 6 9 10 15
+# Your Input: (1 3), (6 9), (10 15)
 # 10 5
 # Expected output is (1, 3) (5, 15) # x < y
 # 
@@ -35,7 +35,8 @@
 # 
 # 7 7
 # Expected output is (1, 3) (6, 9) (10, 15)
-
+# Tricky (Need to find some alternate approach)
+# +++++++++++++++++++
 
 class Solutions:
   def overlapping(self, li):
@@ -59,6 +60,7 @@ def main():
   li = [[1,3],[6,9], [10, 15]]
   merge_point = [7, 7]
   n = len(li)
+  # Swap the intervals if 1st is greater.
   if merge_point[0] > merge_point[1]:
     merge_point[0], merge_point[1] = merge_point[1], merge_point[0]
 
@@ -71,7 +73,7 @@ def main():
   else:
     # Merging points lies between the intervals
     present_interval = 0
-    # If given merging point is already in the interval 2, 2
+    # If given merging point is already in the interval (2, 2)
     for i in range(n):
       if li[i][0] >= merge_point[0] and li[i][1] >= merge_point[1]:
         if i-1 >= 0 and merge_point[0] >= li[i-1][0] and merge_point[1]<= li[i-1][1]:
@@ -79,7 +81,7 @@ def main():
           break
     if present_interval == 0:
       # If both merging point are in the middle and
-      # in the correct increasing order. 4, 9
+      # in the correct increasing order. (4, 9)
       correct_order = 0
       for i in range(n):
         if li[i][0] >= merge_point[0] and li[i][1] >= merge_point[1]:

@@ -18,6 +18,7 @@ class Solutions:
   def climbingStairsUsingDP(self, n):
     if n == 1:
       return 1
+    # Here we start from 1st position.
     dp = [0]*(n+1)
     dp[1] = 1
     dp[2] = 2

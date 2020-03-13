@@ -5,6 +5,7 @@
 #   1+3, 2+2
 #       k=3
 #       1+2
+# Ticky
 
 def countKdivPairs(A, n, K):      
     # Create a frequency array to count  
@@ -35,7 +36,7 @@ def countKdivPairs(A, n, K):
   
 # Driver code 
 A = [2, 2, 1, 7, 5, 3] 
-n = len(A) 
+n = len(A)
 K = 4
 print(countKdivPairs(A, n, K))
 

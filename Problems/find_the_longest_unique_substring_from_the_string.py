@@ -38,7 +38,7 @@ class Solution(object):
             max_length = i - st + 1 # Need to increment by one for taking the
             # last element h in "abcabcdefabefabcdefgh"
             start = st
-        return given_str[start : start + max_length]     
+        return given_str[start : start + max_length]
      
 
 def main():
@@ -49,4 +49,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    

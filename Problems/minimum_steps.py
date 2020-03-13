@@ -2,7 +2,7 @@
 # Each element in the array represents your maximum jump length at that position.
 # Your goal is to reach the last index in the minimum number of jumps.
 # https://leetcode.com/problems/jump-game-ii/
-# O(n*m)
+# O(n)
 
 class Solution:
     def minimumSteps(self, nums):
@@ -24,7 +24,7 @@ class Solution:
                     index = i + j
                     # Check max value of following values + index
                     # [1, 5, 2, 3, 1, 1, 1]
-                    # [0, 1, 2, 3, 4, 5, 6] = index
+                    # [0, 1, 2, 3, 4, 5, 6] = indexs corresponding to above list
                     # [1, 5, 4, 6, 5, 6, 7] = Sum of nums[i+j] + (i+j)
                     if index < len(nums) and (nums[index] + index) > max_value:
                         next_index = j
@@ -43,8 +43,8 @@ def main():
     # nums = [2, 1, 2, 3]
     # nums = [1, 1, 2, 3,1, 2]
     # nums =[3,2,1]
-    nums =[1,2,1,1,1]
-    #nums = [1, 5, 2, 3, 1, 1, 1]
+    nums = [1, 2, 1, 1, 1]
+    # nums = [1, 5, 2, 3, 1, 1, 1]
     print(s.minimumSteps(nums))
 
 if __name__ == '__main__':

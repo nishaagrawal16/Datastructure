@@ -4,6 +4,7 @@
 # We need to do check both even and odd palindrome.
 # O(n2)
 # Need to find different approach of O(n)
+# +++++++++++++++++++
 
 class Solution(object):
     def longestPalindrome(self, s):

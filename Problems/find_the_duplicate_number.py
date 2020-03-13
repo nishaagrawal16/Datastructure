@@ -12,6 +12,7 @@ class Solutions:
             else: 
                 return abs(nums[i])
 
+
 def main():
     # nums = [3, 1, 3, 4, 2]
     nums = [1, 3, 4, 2, 2]

@@ -1,3 +1,4 @@
+# Maximum value of |arr[i] – arr[j]| + |i – j|
 # https://www.geeksforgeeks.org/maximum-value-arri-arrj-j/
 # We can break this expression and create the following equations:
 # (arr[i] + i) - (arr[j] + j)

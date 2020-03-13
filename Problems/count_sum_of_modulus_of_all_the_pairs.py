@@ -14,11 +14,12 @@ class Solutions:
       count[i] += 1
     result = 0
     print('Occurance of elements: ', count)
-    # We skip i = 0 and j = 0  because o value does not give any result
+    # We skip i = 0 and j = 0  because 0 value does not give any result
     # Means 0%n = 0
     for i in range(1, len(count)):
       for j in range(1, len(count)):
         # print(i, j, count[i], count[j])
+        # i%j with multiply the occurance of numbers.
         result += count[i]*count[j]*(i%j)
     return result
      
