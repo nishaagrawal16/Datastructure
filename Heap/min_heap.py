@@ -1,5 +1,5 @@
-# Max Heap
-# https://www.geeksforgeeks.org/max-heap-in-python/
+# Min Heap
+# https://www.geeksforgeeks.org/min-heap-in-python/
 # insert O(logn)
 # getMax O(1)
 # extractMax O(logn)
@@ -8,14 +8,14 @@
 # rightChild 2*i+1
 
 import sys
-class MaxHeap:
+class MinHeap:
     def __init__(self, max_size):
         self.max_size = max_size
         self.size = 0
         self.front = 1
         self.heap = [0]*(max_size + 1)
         # Here we have taken the index from 1 to make it simple.
-        self.heap[0] = sys.maxsize
+        self.heap[0] = -1*sys.maxsize
 
     def leftChild(self, pos):
         return 2*pos
@@ -36,8 +36,8 @@ class MaxHeap:
         self.heap[self.size] = element
         current = self.size
 
-        # Check for parent element to maintain the max heap property
-        while self.heap[current] > self.heap[self.parent(current)]:
+        # Check for parent element to maintain the min heap property
+        while self.heap[current] < self.heap[self.parent(current)]:
             self.swap(current, self.parent(current))
             current = self.parent(current)
 
@@ -59,11 +59,11 @@ class MaxHeap:
         # If the node is a non-leaf node and smaller 
         # than any of its child 
         if not self.isLeaf(pos):
-            if (self.heap[pos] < self.heap[self.leftChild(pos)] or
-                self.heap[pos] < self.heap[self.rightChild(pos)]):
-                # Check that left child id greater than right child
+            if (self.heap[pos] > self.heap[self.leftChild(pos)] or
+                self.heap[pos] > self.heap[self.rightChild(pos)]):
+                # Check that left child id smaller than right child
                 # so it should be swapped to the current position.
-                if self.heap[self.leftChild(pos)] > self.heap[self.rightChild(pos)]:
+                if self.heap[self.leftChild(pos)] < self.heap[self.rightChild(pos)]:
                     self.swap(pos, self.leftChild(pos))
                     self.heapify(self.leftChild(pos))
                 else:                
@@ -75,24 +75,23 @@ class MaxHeap:
             print('Parent: %d Left child: %d Right Child: %d' %
                  (self.heap[i], self.heap[2*i], self.heap[2*i+1]))
         print(self.heap)
-        
 
 def main():
-    max_heap = MaxHeap(9)
-    max_heap.insert(5)
-    max_heap.insert(3)
-    max_heap.insert(17)
-    max_heap.insert(10)
-    max_heap.insert(84)
-    max_heap.insert(19)
-    max_heap.insert(6)
-    max_heap.insert(22)
-    max_heap.insert(9)
+    min_heap = MinHeap(9)
+    min_heap.insert(5)
+    min_heap.insert(3)
+    min_heap.insert(17)
+    min_heap.insert(10)
+    min_heap.insert(84)
+    min_heap.insert(19)
+    min_heap.insert(6)
+    min_heap.insert(22)
+    min_heap.insert(9)
     print('**************** MAX HEAP *****************')
-    max_heap.print_heap()
-    max_heap.extractMax()
+    min_heap.print_heap()
+    min_heap.extractMax()
     print('************* AFTER EXTRACTION ************')
-    max_heap.print_heap()
+    min_heap.print_heap()
 
 
 if __name__ == '__main__':
