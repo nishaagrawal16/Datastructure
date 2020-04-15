@@ -11,7 +11,8 @@ class B(A):
               print('B')
               self.roll = roll
               # If you forget to invoke the __init__()
-              # of the parent class then its instance variables would not be available to the child class.
+              # of the parent class then its instance variables would not be available to the
+              # child class.
               # The self parameter within super function acts as the object of the parent class
               super(B, self).__init__()
               # OR

@@ -1,5 +1,5 @@
 class A(object):
-    def instanc_method(self):
+    def instance_method(self):
         print('I am instance_method')
     @classmethod
     def class_method(cls):
@@ -11,10 +11,10 @@ class A(object):
 
 a = A()
 print('************** Instance method ********************')
-print(a.instanc_method)
-a.instanc_method()
-print(A.instanc_method)
-A.instanc_method(a)
+print(a.instance_method)
+a.instance_method()
+print(A.instance_method)
+A.instance_method(a)
 print('************** class method ********************')
 print(a.class_method)
 a.class_method()
@@ -29,9 +29,9 @@ A.static_method()
 # Output:
 # -------
 # ************** Instance method ********************
-# <bound method A.instanc_method of <__main__.A object at 0x0000000002286160>>
+# <bound method A.instance_method of <__main__.A object at 0x0000000002286160>>
 # I am instance_method
-# <function A.instanc_method at 0x0000000002288048>
+# <function A.instance_method at 0x0000000002288048>
 # I am instance_method
 # ************** class method ********************
 # <bound method A.class_method of <class '__main__.A'>>
