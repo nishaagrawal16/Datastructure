@@ -7,6 +7,7 @@
 #     / \     
 #    40 50     
 # O(n)
+# TODO
 
 class Node:
   def __init__(self, value):

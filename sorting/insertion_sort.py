@@ -2,7 +2,7 @@
 # https://www.geeksforgeeks.org/python-program-for-insertion-sort/
 #
 # In insertion sort, we need to start from index 1 and check the previous indexes
-# that they are in the sorting order or not. If previous index's value is smaller than current key.
+# that they are in the sorting order or not. If previous index's value is greater than current key.
 # swap the elements and goes to the previous element of left.
 # On 1st pass, we need to compare 1st element to the 0th and
 # in next pass 2nd, we need to comapre 2nd element to 1st and 0th,...so on

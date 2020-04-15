@@ -33,12 +33,12 @@ def merge(un_list, l, m, r):
       j = j + 1
     k = k + 1
 
-  if i < n1:
+  while i < n1:
     un_list[k] = L[i]
     i = i + 1
     k = k + 1
 
-  if j < n2:
+  while j < n2:
     un_list[k] = R[j]
     j = j + 1
     k = k + 1

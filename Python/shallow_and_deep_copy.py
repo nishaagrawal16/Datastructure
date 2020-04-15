@@ -11,6 +11,10 @@ l2[0][0] = 8
 print('************** SHALLOW COPY **************')
 print(l1)
 print(l2)
+l2[1] = 12
+print(l1)
+print(l2)
+
 
 # A deep copy constructs a new compound object and then, recursively, inserts
 # copies into it of the objects found in the original.
