@@ -1,12 +1,12 @@
 # Method Resolution Order(MRO) 
 # https://makina-corpus.com/blog/metier/2014/python-tutorial-understanding-python-mro-class-search-path
-# In mro we have two concepts:
+# In MRO we have two concepts:
 # 1) Old style: when object is not the parent class as we are using python2.
 #               We follow the DLR or depth-first left to right In which we first go
 #               to the parent and grand parent if available than left to right.
 #
 # 2) New Style Python(3.x & 2.3) : Where object is the parent class or either
-#   in python 2 or python3. We follow the depth firth left to right with good
+#   in python2 or python3. We follow the depth first left to right with good
 #   head concept as well as C3 linearization algorithm for getting the right
 #   mro concept.
 

@@ -20,7 +20,7 @@ def poly(ob):
     ob.myMethod()
     
 ch = Child()
-ch.myMethod() #Function overriding
+ch.myMethod() #method overriding
 ch.display()  #Inheritance
 print(ch._Child__priv_variable) #data encapsulation
 p = Parent()

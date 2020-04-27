@@ -10,3 +10,8 @@ def main(argv):
 
 if __name__ == '__main__':
     main(sys.argv)
+
+# Output:
+# -------
+# (1, ['command_line.py'])
+# ['__doc__', '__module__', 'abc']

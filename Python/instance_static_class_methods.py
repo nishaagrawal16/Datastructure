@@ -68,3 +68,6 @@ print(A.f(1, 7))
 # A.instance_method    unbound     function
 # A.class_method       Bound       Bound
 # A.static_method      function    function
+# a.instance_method    Bound       Bound
+# a.class_method       Bound       Bound
+# a.static_method      function    function
