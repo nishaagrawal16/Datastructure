@@ -87,20 +87,20 @@ class LinkList:
       return
 
     current = self.start
-    prev = self.start
-    while prev is not None:
-      if prev.next == current:
-        prev.next = current.next
-        self.start = prev.next
+    p = self.start
+    while p is not None:
+      if p.next == current:
+        p.next = current.next
+        self.start = p.next
         break
       else:
-        prev = prev.next
+        p = p.next
 
   def traverse(self):
     if self.start is not None:
       p = self.start
       while p is not None:
-        print('%d -> ' % p.info, end="")
+        print '%d -> ' % p.info,
         p = p.next
         if p == self.start:
           break

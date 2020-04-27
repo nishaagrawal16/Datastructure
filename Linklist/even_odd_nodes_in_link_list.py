@@ -1,6 +1,6 @@
 # Find the even number of nodes and odd nombers of node
 # Example:
-# even, even, Odd, odd, odd, poditions
+# even, even, odd, odd, odd, positions
 
 class Node:
   def __init__(self, value):
@@ -23,7 +23,7 @@ class LinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print('%d -> ' % p.info, end=" ")
+      print '%d -> ' % p.info,
       p = p.next
     print('None')
 

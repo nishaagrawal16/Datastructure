@@ -23,7 +23,7 @@ class LinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print('%d ->' % p.info, end=" ")
+      print '%d ->' % p.info,
       p = p.next
     print ('None')
 

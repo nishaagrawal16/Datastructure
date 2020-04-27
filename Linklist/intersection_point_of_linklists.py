@@ -1,5 +1,6 @@
 # Find intersection point of two sorted link list
 # O(m+n)
+
 class Node:
   def __init__(self, value):
     self.info = value

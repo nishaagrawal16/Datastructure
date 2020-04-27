@@ -1,6 +1,7 @@
 # Date: 13-Feb-2020
 # Sorting in linklist using bubble sort
 # O(n2)
+
 class Node:
   def __init__(self, value):
     self.info = value
