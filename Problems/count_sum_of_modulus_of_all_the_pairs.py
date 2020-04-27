@@ -30,3 +30,9 @@ def main():
 
 if __name__ == '__main__':
   main()
+
+
+# Output:
+# -------
+# ('Occurance of elements: ', [0, 1, 1, 0, 3])
+# 10

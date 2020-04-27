@@ -36,18 +36,18 @@ def checkEqualSumPossible(arr):
   if s % 2:
     return False
 
-  # Create a matrix of size - (sum/2 + 1)*(n + 1)
+  # Create a matrix of size: (sum/2 + 1)*(n + 1)
   # dp[i][j] = true if a subset of {arr[0], arr[1], ..arr[j-1]} has sum equal
   # to i, otherwise false
   half_sum = s // 2
   dp = [[None]*(n + 1) for _ in range(half_sum + 1)]
 
   # Initialize top row as true as sum of 0 is always possible with any subset
-  # of numbers - using empty set
+  # of numbers using empty set
   for i in range(n + 1):
     dp[0][i] = True
 
-  # Initialize leftmost column, except part[0][0], as no positive sum is
+  # Initialize leftmost column, except dp[0][0], as no positive sum is
   # possible with 0 elements
   for i in range(1, half_sum + 1):
     dp[i][0] = False
@@ -60,7 +60,7 @@ def checkEqualSumPossible(arr):
       # sum is also possible with subsets of elements from arr[0..j-1].
       dp[i][j] = dp[i][j - 1]
 
-      # In case d[i][j] comes to be false and current element is less than
+      # In case dp[i][j] comes to be false and current element is less than
       # running sum, we can assign value which was at sum = without current
       # element
       if i >= arr[j-1] and (not dp[i][j]):
@@ -80,3 +80,4 @@ def main():
 
 if __name__ == '__main__':
   main()
+  

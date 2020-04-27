@@ -40,19 +40,19 @@ class Solutions:
       second = third
     return second
 
-  def climbingStairsusingFibRecur(self, n):
+  def climbingStairsusingRecur(self, n):
     if n == 1:
       return 1
     if n == 2:
       return 2    
-    return self.climbingStairsusingFibRecur(n-1) + self.climbingStairsusingFibRecur(n-2)
+    return self.climbingStairsusingRecur(n-1) + self.climbingStairsusingRecur(n-2)
 
 
 def main():
   s = Solutions()
   print(s.climbingStairsUsingDP(5))
   print(s.climbingStairsusingFib(5))
-  print(s.climbingStairsusingFibRecur(5))
+  print(s.climbingStairsusingRecur(5))
 
 if __name__ == '__main__':
   main()
