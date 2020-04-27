@@ -1,4 +1,5 @@
 # Find duplicate number
+# This is only applicable when maximum number of array should be less than length of array.
 # https://www.geeksforgeeks.org/find-duplicates-in-on-time-and-constant-extra-space/
 # O(n)
 
@@ -8,7 +9,7 @@ class Solutions:
             return
         for i in range(len(nums)):
             if nums[abs(nums[i])] >= 0:
-                nums[abs(nums[i])] = -nums[abs(nums[i])] 
+                nums[abs(nums[i])] = -nums[abs(nums[i])]
             else: 
                 return abs(nums[i])
 

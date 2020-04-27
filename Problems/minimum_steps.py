@@ -10,7 +10,6 @@ class Solution:
             return 0
         steps = 0
         i = 0
-       
         while i < len(nums) - 1:
              # Check element with length (Last element)
             if nums[i] >= len(nums) - 1 - i:

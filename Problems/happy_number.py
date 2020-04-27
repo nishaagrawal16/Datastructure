@@ -1,8 +1,8 @@
-# ****************************************************
+# *********************************************************
 # Find Given Number is Happy Number or not
-# Number will be Happy when sum_of_sq_digit of it's digits square is 1
+# Number will be Happy when sum of it's digits square is 1
 # https://www.geeksforgeeks.org/happy-number/
-# ****************************************************
+# ********************************************************
 
 class Solution(object):
   def happy_number(self, num, list1):
