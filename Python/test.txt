@@ -5,4 +5,3 @@ I am working in Globallogic.
 
 I am a senior software in this company.
 I am writing a program to write into the file.
-I am writing a program to write into the file.
