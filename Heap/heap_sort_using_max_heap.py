@@ -17,7 +17,7 @@ def heapify(arr, n, i):
     r = 2 * i + 2     # right = 2*i + 2 
     # See if left child of root exists and is 
     # greater than root 
-    if l < n and arr[i] < arr[l]: 
+    if l < n and arr[largest] < arr[l]: 
         largest = l 
   
     # See if right child of root exists and is 
