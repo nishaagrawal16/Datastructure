@@ -35,7 +35,8 @@ a.foo()
 
 # Output:
 # -------
-# ['__doc__', '__init__', '__module__', 'change_name', 'class_foo', 'foo', 'name', 'static_foo']
+# ['__doc__', '__init__', '__module__', 'change_name', 'class_foo', 'foo',
+# 'name', 'static_foo']
 # ('A instance method name: ', 'nn', 'nisha')
 # ('A class method', 'hello')
 # ('A static method', 'yes')

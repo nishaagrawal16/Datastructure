@@ -46,7 +46,8 @@ print(object1._D__f)
 
 
 # Python code to demonstrate multiple inheritance 
-# we cannot override a private method of a superclass, which is the one having double underscores before its name. 
+# we cannot override a private method of a superclass, which is the one having
+# double underscores before its name.
 # Base Class 
 class A(object):                 
         def __init__(self): 

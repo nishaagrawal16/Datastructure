@@ -45,7 +45,7 @@ class A(object):
         def display1(self): 
             print('Inner Of Parent Class') 
               
-class B(A): 
+class B(A):
     def __init__(self): 
         print('In Child Class') 
         super(B, self).__init__()
@@ -69,7 +69,10 @@ x.display2()
 # -------
 # In Child Class
 # ('INNER DIR**********: ', ['__doc__', '__module__', 'display1', 'display2'])
-# ('B DIR: ', ['Inner', '__class__', '__delattr__', '__dict__', '__doc__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'db', 'display'])
+# ('B DIR: ', ['Inner', '__class__', '__delattr__', '__dict__', '__doc__',
+# '__format__', '__getattribute__', '__hash__', '__init__', '__module__',
+# '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__',
+# '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'db', 'display'])
 # In Parent Class
 # ('Inner DIR: ', ['__doc__', '__module__', 'display1', 'display2'])
 # Inner Of Parent Class
