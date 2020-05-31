@@ -55,22 +55,22 @@ class Tree:
       self.treeTraversalInOrder(root.right)
 
 def create_tree(start):
-  que = []
+  q = []
   current = start
   t = Tree()
   t.root = TreeNode(current.info)
-  que.append(t.root)
+  q.append(t.root)
   current = current.next
   while current is not None:
-    parent = que.pop(0)
+    parent = q.pop(0)
     left_child = None
     right_child = None
     left_child = TreeNode(current.info)
-    que.append(left_child)
+    q.append(left_child)
     current = current.next
     if current is not None:      
       right_child = TreeNode(current.info)
-      que.append(right_child)
+      q.append(right_child)
       current = current.next      
     parent.left = left_child
     parent.right = right_child

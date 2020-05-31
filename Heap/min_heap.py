@@ -1,8 +1,8 @@
 # Min Heap
 # https://www.geeksforgeeks.org/min-heap-in-python/
 # insert O(logn)
-# getMax O(1)
-# extractMax O(logn)
+# getMin O(1)
+# extractMin O(logn)
 # parent i//2
 # leftChild 2*i
 # rightChild 2*i+1
@@ -41,7 +41,7 @@ class MinHeap:
             self.swap(current, self.parent(current))
             current = self.parent(current)
 
-    def extractMax(self):
+    def extractMin(self):
         popped = self.heap[self.front]
         # Replace the 1st element from the last then correct the position
         self.heap[self.front] = self.heap[self.size]
@@ -61,7 +61,7 @@ class MinHeap:
         if not self.isLeaf(pos):
             if (self.heap[pos] > self.heap[self.leftChild(pos)] or
                 self.heap[pos] > self.heap[self.rightChild(pos)]):
-                # Check that left child id smaller than right child
+                # Check that left child is smaller than right child
                 # so it should be swapped to the current position.
                 if self.heap[self.leftChild(pos)] < self.heap[self.rightChild(pos)]:
                     self.swap(pos, self.leftChild(pos))
@@ -87,9 +87,9 @@ def main():
     min_heap.insert(6)
     min_heap.insert(22)
     min_heap.insert(9)
-    print('**************** MAX HEAP *****************')
+    print('**************** MIN HEAP *****************')
     min_heap.print_heap()
-    min_heap.extractMax()
+    min_heap.extractMin()
     print('************* AFTER EXTRACTION ************')
     min_heap.print_heap()
 

@@ -1,11 +1,10 @@
 # Date: 13-Dec-2019
-# Print Top View of a Binary Tree (First node of every Vertical levels)
-# https://www.geeksforgeeks.org/print-nodes-top-view-binary-tree/#
-#         10
-#       /   \
-#      20   30
-#     / \     
-#    40 50     
+# Sum of precedence of Nodes
+#         10(120)
+#       /     \
+#      20(90)  30(30)
+#     /     \
+#    40(40) 50(50)
 # O(n)
 # TODO
 
@@ -32,11 +31,11 @@ class Tree:
     n2.left = n4
     n2.right = n5
 
-  def treeTraversalPostOrder(self, root):
+  def SumOfPrecedence(self, root):
     if root:
       precedence_sum = 0
-      self.treeTraversalPostOrder(root.left)
-      self.treeTraversalPostOrder(root.right)
+      self.SumOfPrecedence(root.left)
+      self.SumOfPrecedence(root.right)
       print root.data,
       if root.left:
         precedence_sum = precedence_sum + root.left.data
@@ -58,6 +57,7 @@ class Tree:
       elif s:
         precedence_sum = 0      
         root = s.pop()
+        print root.data,
         if root.left:
           precedence_sum = precedence_sum + root.left.data
         if root.right:
@@ -65,6 +65,8 @@ class Tree:
         if precedence_sum:
           root.data = precedence_sum
         print "Sum of nodes precedence: ", root.data
+        if root.right:
+          root = root.right
       else:
         break          
 
@@ -73,7 +75,8 @@ def main():
   print('***************** TREE ******************\n')
   t = Tree()
   t.createTree()
-  t.treeTraversalPostOrder(t.root)
+  t.SumOfPrecedence(t.root)
+  # t.sumOfPrecedenceWithOutRecursion(t.root)
   
 
 if __name__ == '__main__':
@@ -85,7 +88,9 @@ if __name__ == '__main__':
 # 
 # ***************** TREE ******************
 # 
-# ********** INORDER TRAVERSAL ************
-# 40 20 50 10 30 
-# ************* TOP VIEW ****************
-# 40 20 10 30
+# 40 Sum of nodes precedence:  40
+# 50 Sum of nodes precedence:  50
+# 20 Sum of nodes precedence:  90
+# 30 Sum of nodes precedence:  30
+# 10 Sum of nodes precedence:  120
+

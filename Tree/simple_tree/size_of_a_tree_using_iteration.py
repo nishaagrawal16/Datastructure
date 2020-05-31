@@ -1,4 +1,5 @@
 # Write a program to Calculate Size of a tree | Iteration
+# Number of nodes
 #         10
 #       /   \
 #      20   30

@@ -62,16 +62,17 @@ class Tree:
   # O(n), n is number of node in tree. Requires extra space to maintain queue.
   #/
   def levelOrderTraversal(self, root):
-    que = []
-    temp_node = root
-    que.append(root)
-    while len(que):
-      temp_node = que.pop(0)
-      print(temp_node.info)
-      if temp_node.left is not None:
-        que.append(temp_node.left)
-      if temp_node.right is not None:
-        que.append(temp_node.right)
+    if root is None:
+      return
+    q = []
+    q.append(root)
+    while len(q):
+      root = q.pop(0)
+      print(root.info)
+      if root.left:
+        q.append(root.left)
+      if root.right:
+        q.append(root.right)
 
 def main():
   print('***************** TREE ******************\n')

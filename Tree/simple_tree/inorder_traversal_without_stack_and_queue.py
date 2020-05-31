@@ -13,6 +13,12 @@
 #     / \     
 #    40 50 
 # O(n)
+# Tricky**
+#          10
+#       /  |  \
+#      20  | 30
+#     / | \|
+#   40_/  50
 
 
 class Node:
@@ -44,7 +50,8 @@ class Tree:
         print current.data,
         current = current.right
       else:
-        # Find the inorder predecessor of current 
+        # Find the inorder predecessor of current
+        # Makes current as right child of left subtree.
         pre = current.left
         while(pre.right is not None and pre.right != current):
           pre = pre.right
