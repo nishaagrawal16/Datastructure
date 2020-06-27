@@ -29,7 +29,10 @@ print('__module__:', e.__module__)
 
 # Output:
 # -------
-# __dict__:  {'__module__': '__main__', '__doc__': 'Common base class for all employees', 'empCount': 1, '__init__': <function Employee.__init__ at 0x0000000001E69048>, 'displayCount': <function Employee.displayCount at 0x0000000001E690D0>, 'displayEmployee': <function Employee.displayEmployee at 0x0000000001E69158>}
+# __dict__:  {'__module__': '__main__', '__doc__': 'Common base class for all employees',
+#             'empCount': 1, '__init__': <function Employee.__init__ at 0x0000000001E69048>,
+#             'displayCount': <function Employee.displayCount at 0x0000000001E690D0>,
+#             'displayEmployee': <function Employee.displayEmployee at 0x0000000001E69158>}
 # __name__:  Employee
 # __module__: __main__
 # __bases__:  (<class '__main__.Student'>,)

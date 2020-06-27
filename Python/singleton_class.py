@@ -2,6 +2,7 @@
 
 class Singleton:
    __instance = None
+
    @staticmethod 
    def getInstance():
       """ Static access method. """
@@ -15,9 +16,9 @@ class Singleton:
          raise Exception("This class is a singleton!")
       else:
          Singleton.__instance = self
+
 s = Singleton()
 print(s)
-
 s = Singleton.getInstance()
 print(s)
 s = Singleton.getInstance()

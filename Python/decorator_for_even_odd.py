@@ -20,3 +20,38 @@ def random_number():
 
 for i in range(10):
     random_number()
+
+# Output:
+# ------
+#
+# Inside the decorator
+# *************** Inside xyz *********************
+# 17
+# number is odd
+# *************** Inside xyz *********************
+# 3
+# number is odd
+# *************** Inside xyz *********************
+# 6
+# number is Even
+# *************** Inside xyz *********************
+# 32
+# number is Even
+# *************** Inside xyz *********************
+# 66
+# number is Even
+# *************** Inside xyz *********************
+# 84
+# number is Even
+# *************** Inside xyz *********************
+# 96
+# number is Even
+# *************** Inside xyz *********************
+# 45
+# number is odd
+# *************** Inside xyz *********************
+# 14
+# number is Even
+# *************** Inside xyz *********************
+# 64
+# number is Even

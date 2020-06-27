@@ -1,5 +1,6 @@
 # Python program to demonstrate error if we 
 # forget to invoke __init__() of parent.  
+
 class A(object):
       a = 1
       def __init__(self, n = 'Rahul'):
@@ -11,9 +12,10 @@ class B(A):
               print('B')
               self.roll = roll
               # If you forget to invoke the __init__()
-              # of the parent class then its instance variables would not be available to the
-              # child class.
-              # The self parameter within super function acts as the object of the parent class
+              # of the parent class then its instance variables would not be
+              # available to the child class.
+              # The self parameter within super function acts as the object of
+              # the parent class
               super(B, self).__init__()
               # OR
               # A.__init__(self)
@@ -22,9 +24,17 @@ print(b.roll)
 print(b.name)
 print(b.a)
 
+# Output:
+# -------
+# B
+# A
+# 23
+# Rahul
+# 1
 
-# Python program to demonstrate private members 
-# of the parent class 
+
+# Python program to demonstrate private members of the parent class
+
 class C(object): 
        def __init__(self): 
               self.c = 21
@@ -35,36 +45,50 @@ class D(C):
        def __init__(self): 
               self.e = 84
               self.__f = 99
-              C.__init__(self) 
+              C.__init__(self)
+
 object1 = D()
 print(dir(object1))
 # This is the way to call the private variables
 print(object1._C__d)
 print(object1._D__f)
-# produces an error as d is private instance variable 
+# produces an error as d is private instance variable
 # print D.d
+
+# Output:
+# ------
+# ['_C__d', '_D__f', '__class__', '__delattr__', '__dict__', '__doc__',
+# '__format__', '__getattribute__', '__hash__', '__init__', '__module__',
+# '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__',
+# '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'c', 'e']
+# 42
+# 99
 
 
 # Python code to demonstrate multiple inheritance 
 # we cannot override a private method of a superclass, which is the one having
 # double underscores before its name.
-# Base Class 
+# Base Class
+
 class A(object):                 
         def __init__(self): 
                 constant1 = 1
+
         def __method1(self): 
                 print('method1 of class A') 
   
 class B(A): 
         def __init__(self): 
                 constant2 = 2
-                A. __init__(self) 
+                A. __init__(self)
+
         def __method1(self): 
                 print('method1 of class B')
 
         def calling1(self): 
                 self.__method1() 
                 self._A__method1() 
+
 b = B()
 # AttributeError: 'B' object has no attribute '__method1'
 # b.__method1()
@@ -74,3 +98,11 @@ b._B__method1()
 b._A__method1()
 print('******* Calling1 **************')
 b.calling1()
+
+# Output:
+# ------
+# method1 of class B
+# method1 of class A
+# ******* Calling1 **************
+# method1 of class B
+# method1 of class A

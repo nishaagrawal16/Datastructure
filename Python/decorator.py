@@ -12,6 +12,12 @@ def print_hello1():
 print('***************** decorator with function only ********************')
 print_hello1()
 
+# Output:
+# ------
+# ***************** decorator with function only ********************
+# start
+# Hello
+
 # With function arguments
 def decoWrapper2(func):
     def xyz(arg):
@@ -25,6 +31,12 @@ def print_hello2(name):
 
 print('***** decorator with function and one argument to the function *******')
 print_hello2('nisha')
+
+# Output:
+# -------
+# ***** decorator with function and one argument to the function *******
+# ('start', 'nisha')
+# ('Hello', 'nisha')
 
 # With two arguments by using *
 def decoWrapper3(func):
@@ -40,6 +52,12 @@ def print_hello3(*name):
 print('***** decorator with function and two argument to the function *******')
 print_hello3('nisha', 'agrawal')
 
+# Output:
+# -------
+# ***** decorator with function and two argument to the function *******
+# ('start', ('nisha', 'agrawal'))
+# ('Hello', ('nisha', 'agrawal'))
+
 def decoWrapper4(a, b):
     def xyz(func):
         def abc(name):
@@ -54,3 +72,9 @@ def print_hello4(name):
 
 print('***** decorator with arguments and function with one argument *******')
 print_hello4('nisha')
+
+# Output:
+# ------
+# ***** decorator with arguments and function with one argument *******
+# ('start', 10, 20)
+# ('Hello', 'nisha')

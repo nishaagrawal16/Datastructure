@@ -12,7 +12,8 @@
 # Pass2: [5, 6, 1, 4, 8, 3, 2, 7, 9, 10]
 #                                -------- Sorted
 # .... So on
-# O(n2)
+# Time Complexity: O(n2)
+# Space Complexity: O(1)
 
 def bubble_sort(un_list):
   n = len(un_list)

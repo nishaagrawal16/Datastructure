@@ -1,5 +1,7 @@
-# # https://www.programiz.com/python-programming/iterator
-# # Create your own iterator.
+# https://www.programiz.com/python-programming/iterator
+# Create your own iterator.
+# https://www.programiz.com/python-programming/iterator#for-loop-working
+# Must Read: How for loop actually works?, Python Infinite Iterators
 
 class IteratorFib:
     def __init__(self, n):
@@ -9,7 +11,7 @@ class IteratorFib:
 
     def __iter__(self):
         print('tes2')
-        return self # It can be any object (either of same class or differnce)
+        return self # It can be any object (either of same class or different)
     
     def next(self):
         print('next of IteratorFib')

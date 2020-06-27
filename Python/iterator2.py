@@ -1,9 +1,10 @@
-# Create a iterator of diffenet class
+# Create a iterator of different class
 
 class A:
     def __init__(self, data):
         self.num = data.n
         self.count1 = 0
+
     def next(self):
         print('next of A')
         if self.count1 == self.num:
@@ -18,8 +19,8 @@ class IteratorFib:
         self.count = 0
 
     def __iter__(self):
-        print('tes2')
-        return A(self) # It can be any object (either of same class or differnce)
+        print('test2')
+        return A(self) # It can be any object (either of same class or different)
     
     def next(self):
         print('next of IteratorFib')
@@ -44,7 +45,6 @@ def main():
 if __name__ == '__main__':
     main()
 
-
 # Output:
 # -------
 # test1
@@ -53,7 +53,7 @@ if __name__ == '__main__':
 # next of IteratorFib
 # 2
 # ************ Iterator ***************
-# tes2
+# test2
 # next of A
 # 1
 # next of A

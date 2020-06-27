@@ -22,6 +22,12 @@ def main():
 if __name__ == '__main__':
     main()
 
+# Output:
+# -------
+# ********** NEW STYLE *******************
+# ('name in parent: ', 'nisha')
+# ('name in sub: ', 'nisha')
+
 # Inheritance in Old Style 
 class SolutionsP: # In old style there is no object class
     def __init__(self):
@@ -46,3 +52,11 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# Output:
+# -------
+# ********** OLD STYLE *******************
+# ('name in parent: ', 'nisha')
+# ('name in sub: ', 'nisha')
+

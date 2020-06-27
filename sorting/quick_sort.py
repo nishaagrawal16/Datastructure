@@ -4,9 +4,11 @@
 # In quick sort, Target of partitions is, given an array and
 # an element x of array as pivot, put x at its correct position
 # in sorted array and put all smaller elements (smaller than x) before x,
-# and put all greater elements (greater than x) after x. 
+# and put all greater elements (greater than x) after x.
 # All this should be done in linear time.
-# O(nlogn)
+# O(nlogn) average case
+# If the array is already sorted and we take the last element as pivot. worst
+# case complexity: O(n2)
 
 def partition(un_list, low, high):
   i = low - 1
