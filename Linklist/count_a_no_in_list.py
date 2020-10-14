@@ -1,7 +1,11 @@
 #!/usr/bin/python
 
-# Count a number is present how many times in the link list.
+# Count a number is present how many times in the linked list.
+
 class Node:
+  """
+  This class is for creating a Node for a linked list.
+  """
   def __init__(self, value):
     self.info = value
     self.next = None
