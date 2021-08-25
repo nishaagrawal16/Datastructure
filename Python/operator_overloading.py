@@ -1,3 +1,5 @@
+# https://www.programiz.com/python-programming/operator-overloading
+# Must Read This.
 
 class Point:
     def __init__(self, x):
@@ -22,7 +24,10 @@ class Vector:
         return 'Vector (%d, %d)' % (self.x, self.y)
 
     def __add__(self, other):
-        return (Vector(self.x + other.x, self.y + other.y))
+        x = self.x + other.x
+        y = self.y + other.y
+        return Vector(x, y)
+
 
 v1 = Vector(5, 8)
 v2 = Vector(4, -2)
