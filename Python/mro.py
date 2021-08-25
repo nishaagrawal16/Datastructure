@@ -75,9 +75,8 @@ f.who_am_i()
 # order (MRO) for bases X, Y
 
 # Explaination: Using C3 Linearization
-# F(A,B) = F + merage(L[A]+L[B] , A, B)
-#        = F + merge(A, X, Y) + (B, Y, X), A, B)
-#        = FA + merge((X, y) + (B, Y, X), B)
-#        = FAB + merge((x, y)+ (y, x))
+# F(A,B) = F + merge(L[A]+L[B] , A, B)
+#        = F + merge((A, X, Y) + (B, Y, X), A, B)
+#        = FA + merge((X, Y) + (B, Y, X), B)
+#        = FAB + merge((X, Y)+ (Y, X))
 #        = Cann't create the mro()
-
