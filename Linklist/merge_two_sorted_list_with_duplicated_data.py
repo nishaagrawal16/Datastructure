@@ -43,16 +43,14 @@ def union(l1, l2):
       temp2 = Node(p2.info)
       temp.next = temp2
       p1 = p1.next
-      p2 = p2.next 
+      p2 = p2.next
     if l3.start is None:
       l3.start = temp
-      p_l3 = l3.start
+      p = l3.start
     else:
       p.next = temp
-      p_l3 = p.next
-    while p_l3.next is not None:
-      p_l3 = p_l3.next
-    p = p_l3
+    while p.next is not None:
+      p = p.next
 
   # Push remaining nodes of list1 to list3
   while p1 is not None:
