@@ -76,8 +76,9 @@ class LinkList:
       print('Element %d is not present in the list.' % x)
       return False
 
-    # May be possible that given x is not in the list
-    # so check for after_start for assigning the next to None
+    # May be possible that before list is empty as no numebr is less than x.
+    # so check the before end is not None otherwise make the after_start as 
+    # starting point of the list.
     after_end.next = None
     if before_end is None:
       self.start = after_start
