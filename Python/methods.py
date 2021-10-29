@@ -9,7 +9,7 @@ class A:
 
     @classmethod
     def class_foo(cls):
-        A.name = "hello"
+        A.name = 'hello'
         print('A class method', cls.name)
 
     @staticmethod
