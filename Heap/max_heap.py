@@ -15,7 +15,7 @@ class MaxHeap:
         self.front = 1
         self.heap = [0]*(max_size + 1)
         # Here we have taken the index from 1 to make it simple.
-        self.heap[0] = sys.maxsize
+        self.heap[0] = self.heap[0] = float('Inf')
 
     def leftChild(self, pos):
         return 2*pos
