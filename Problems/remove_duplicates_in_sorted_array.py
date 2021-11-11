@@ -20,3 +20,9 @@ print('Initial list: ', n)
 new_length = s.removeDuplicates(n)
 print('total distinct elements in the list: ', new_length)
 print('Inplace modified list:', n)
+
+Output:
+-------
+Initial list:  [1, 2, 2, 3, 3, 3, 4]
+total distinct elements in the list:  4
+Inplace modified list: [1, 2, 3, 4, 3, 3, 4]
