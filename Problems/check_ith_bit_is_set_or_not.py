@@ -265,5 +265,144 @@ def flipAllBits(n):
 #  5 ==> 0101
 print(flipAllBits(10)) 
 
+##########################################################################
+# Lecture 16 - Print all the subsets of an array | Bit Manipulation
+# Tutorial
+# [1, 2, 3]
+#  1  0  0 --> 4
+#  0  1  0 --> 2
+#  1  1  0 --> 6
+#  0  0  1 --> 1
+#  1  0  1 --> 5
+#  0  1  1 --> 3
+#  1  1  1 --> 7
+# total = 2**n - 1
 
+def subsetsOfArray(n, arr):
+    total = 2**n - 1
+    # This is for each binary number.
+    for k in range(1, total + 1):
+        i = 0
+        # This is for each element of array is set or not. 
+        for i in range(n):
+            if k & (1 << i):
+                print(arr[i], end=' '),
+        print('')
+
+subsetsOfArray(3, [1, 2, 3])
+
+# Output:
+# ------
+# 1 
+# 2 
+# 1 2 
+# 3 
+# 1 3 
+# 2 3 
+# 1 2 3 
+
+##########################################################################
+# Lecture 17 - Paying Up ( codechef ) | Bit Manipulation Tutorial
+# You have n notes and mobster demand for some moneny, if your notes subset
+# is equal to the money than you can give him money otherwise no need to
+# pay off.
+
+def payingUp(n, arr, money):
+    total = 2**n -1
+    # This is for each binary number. 
+    for k in range(1, total + 1):
+        i = 0
+        # This is for each element of array is set or not. 
+        sum = 0
+        for i in range(n):
+            if k & (1 << i):
+                print(arr[i], end=' '),
+                sum += arr[i]
+        print('sum: ', sum)
+        if sum == money:
+            return 'Yes'
+    return 'No'
+
+print(payingUp(3, [1, 2, 3], 3))
+
+##########################################################################
+# Lecture 18 - Print all subsets of an array of k length | Bit Manipulation
+# Tutorial
+
+# Approach-1:
+# -----------
+def subsetOfKLength(n, arr, lengthOfSubset):
+    total = 2**n -1
+    # This is for each binary number. 
+    for k in range(1, total + 1):
+        i = 0
+        count = 0
+        subset = []
+        # This is for each element of array is set or not. 
+        for i in range(n):
+            if k & (1 << i):
+                count += 1
+                subset.append(arr[i])
+        if count == lengthOfSubset:
+            print(subset)
+    
+subsetOfKLength(4, [1, 2, 3, 4], 2)
+
+# Approach-2:
+# -----------
+def subsetOfKLength(n, arr, lengthOfSubset):
+    total = 2**n -1
+    # This is for each binary number. 
+    for k in range(1, total + 1):
+        i = 0
+        k1 = k
+        count = 0
+        # Check the total set bit.
+        while k1:
+            k1 = k1 & (k1 - 1)
+            count += 1
+        if count == lengthOfSubset:
+            # This is for each element of array is set or not. 
+            for i in range(n):
+                if k & (1 << i):
+                    print(arr[i], end=' ')
+            print('')
+
+subsetOfKLength(4, [1, 2, 3, 4], 2)
+
+# Output:
+# ------
+# 1 2 
+# 1 3 
+# 2 3 
+# 1 4 
+# 2 4 
+# 3 4
+
+##########################################################################
+# Lecture 19 - Sum vs XOR ( Hackerrank ) | Bit Manipulation Tutorial
+# a+b = a^b + 2(a&b)
+# for making a+b = a^b, we need to make a&b = 0
+# 0 & 1 = 0
+# 0 & 0 = 0
+# 1 & 0 = 0
+# 1 & 1 = 1
+# for making it 0 we have two things 0 --> 0(2 ways) and 1 --> 0(1 ways)
+# n = 4: 1 0 0
+#      & 0 0/1 0/1
+#      -----------
+#        1* 2* 2 = 4 answer 
+            
+import math
+def sumVsXOR(n):
+    totalBitRepresent = math.floor(math.log2(n) + 1)
+    totalSetBit = 0
+    # Check the total set bit.
+    while n:
+        n = n & (n - 1)
+        totalSetBit += 1
+    totalUnsetBit = totalBitRepresent - totalSetBit
+    return 2**totalUnsetBit # 1 << totalUnsetBit
+
+print(sumVsXOR(4))
 
