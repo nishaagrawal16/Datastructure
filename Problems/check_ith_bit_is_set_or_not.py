@@ -391,7 +391,7 @@ subsetOfKLength(4, [1, 2, 3, 4], 2)
 # n = 4: 1 0 0
 #      & 0 0/1 0/1
 #      -----------
-#        1* 2* 2 = 4 answer 
+#        1* 2* 2 = 4 answer (2**totalUnsetBit)
             
 import math
 def sumVsXOR(n):
