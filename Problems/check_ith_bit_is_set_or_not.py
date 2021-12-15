@@ -167,6 +167,16 @@ print(powerOfFour(16))
 ########################################################################
 # Lecture 11 - XORSN (codechef) | Bit Manipulation
 # Find XOR[1, n]: 1^2^3^4^5^...n
+# Approach:
+# ---------
+# 1 = 1
+# 1^2 = 3
+# 1^2^3 = 0
+# 1^2^3^4 = 4
+# 1^2^3^4^5 = 1
+# 1^2^3^4^5^6 = 7
+# 1^2^3^4^5^6^7 = 0
+# 1^2^3^4^5^6^7^8 = 8
 
 def XORTillN(n):
     rem = n % 4
@@ -250,6 +260,9 @@ print(twoUniqueNumbers([1, 5, 1, 2, 5, 3]))
 # XOR will give the following result.
 # 1 -> 0
 # 0 -> 1
+# This thing we can achieve by using XOR. 
+# 1 ^ 1 -> 0
+# 0 ^ 1 -> 1
 # If with XOR the given number with 1111(all position should be set)
 
 import math
