@@ -46,7 +46,7 @@ def merge(un_list, l, m, r):
 
 def merge_sort(un_list, l, r):
   if (l < r):
-    m = (l + (r-1))/2 # (left + (right -1))/2
+    m = l + (r-l)//2 # left + (right -left)//2
     merge_sort(un_list, l, m)
     merge_sort(un_list, m + 1, r)
     merge(un_list, l, m, r)
