@@ -56,7 +56,7 @@ class MinHeap:
         return False
 
     def heapify(self, pos):
-        # If the node is a non-leaf node and smaller 
+        # If the node is a non-leaf node and greater 
         # than any of its child 
         if not self.isLeaf(pos):
             if (self.heap[pos] > self.heap[self.leftChild(pos)] or
