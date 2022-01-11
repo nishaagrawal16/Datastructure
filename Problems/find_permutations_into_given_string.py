@@ -30,10 +30,11 @@ class Solution:
                         totalPermutations += 1
                         result.append(s2[i: r+1])
                         break
-                    
+            # Decrease left character freq
             index = ord(s2[i]) - 97
             s2Feq[index] -= 1
 
+            # Increase right character freq
             if  r < len(s2) - 1:
                 r += 1
                 index = ord(s2[r]) - 97
