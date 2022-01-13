@@ -11,11 +11,18 @@ class Stack:
         self.top = -1
         self.st = [0]*n
         
-    def empty(self):
+    def isEmpty(self):
         if self.top == -1:
+            print('Stack is empty')
             return True
         return False
         
+    def isStackFull(self):
+        if self.top == self.maxSize - 1:
+            print('stack is full')
+            return True
+        return False
+            
     def size(self):
         return self.top + 1
         
@@ -23,17 +30,12 @@ class Stack:
         return self.top
 
     def push(self, val):
-        if self.top == self.maxSize - 1:
-            print('stack is full')
-        else:
+        if not self.isStackFull():
             self.top += 1
             self.st[self.top] = val
         
     def pop(self):
-        if self.empty():
-            print('Stack is empty')
-            return
-        else:
+        if not self.isEmpty():
             val = self.st[self.top]
             self.top -= 1
             return val
@@ -41,6 +43,7 @@ class Stack:
     def printStack(self):
         for i in range(self.top + 1):
             print(self.st[i])
+
 st = Stack(6)
 print('Stack is empty or not: ', st.empty())
 st.push('a')
