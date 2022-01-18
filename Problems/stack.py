@@ -13,14 +13,12 @@ class Stack:
         
     def isEmpty(self):
         if self.top == -1:
-            print('Stack is empty')
-            return True
+            raise Exception("Stack is empty")
         return False
         
     def isStackFull(self):
         if self.top == self.maxSize - 1:
-            print('stack is full')
-            return True
+            raise Exception("Stack is full")
         return False
             
     def size(self):
@@ -40,31 +38,51 @@ class Stack:
             self.top -= 1
             return val
         
-    def printStack(self):
-        for i in range(self.top + 1):
+    def peep(self):
+        i = self.top
+        while i > -1:
             print(self.st[i])
+            i -= 1
 
 st = Stack(6)
-print('Stack is empty or not: ', st.empty())
+try:
+    print('Stack is empty or not: ', st.isEmpty())
+except Exception as err:
+    print(err)
+try:
+    print('Pop the element from stack: ', st.pop())
+except Exception as err:
+    print(err)
+    
 st.push('a')
 st.push('b')
 print('Top position of stack: ', st.topPosition())
 print('Size of stack', st.size())
 st.push('c')
 st.push('d')
+st.push('e')
+st.push('f')
+try:
+    st.push('g')
+except Exception as err:
+    print(err)
 print('Pop the element from stack: ', st.pop())
 print('Size of stack', st.size())
 print('Top position of stack: ', st.topPosition())
-st.printStack()
+st.peep()
 
 # Output:
 # -------
-# Stack is empty or not:  True
+# Stack is empty
+# Stack is empty
 # Top position of stack:  1
 # Size of stack 2
-# Pop the element from stack:  d
-# Size of stack 3
-# Top position of stack:  2
-# a
-# b
+# Stack is full
+# Pop the element from stack:  f
+# Size of stack 5
+# Top position of stack:  4
+# e
+# d
 # c
+# b
+# a
