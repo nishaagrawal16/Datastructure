@@ -12,13 +12,13 @@ def printPostOrder(preorder, inorder, n):
   if preorder[0] in inorder:
     root = inorder.index(preorder[0])
   else:
-    print 'root not found in inorder'
+    print('root not found in inorder')
     return
 
   # Check left subtree present
   if root != 0:
     printPostOrder(preorder[1: root+1],
-                   inorder[:root], 
+                   inorder[:root],
                    len(inorder[:root]))
 
   # Check right subtree present
@@ -27,7 +27,7 @@ def printPostOrder(preorder, inorder, n):
                    inorder[root+1:],
                    len(inorder[root+1:]))
 
-  print preorder[0],
+  print(preorder[0], end='')
 
 
 def main():
@@ -36,15 +36,15 @@ def main():
   if len(preorder) == len(inorder):
     n = len(preorder)
   else:
-    print 'Preorder and inorder is not of the same tree'
+    print('Preorder and inorder is not of the same tree')
     return
   print('********** PREORDER TRAVERSAL ***********')
-  print 'Preorder: ', preorder
+  print('Preorder: ', preorder)
   print('********** INORDER TRAVERSAL ************')
-  print 'Inorder: ', inorder
+  print('Inorder: ', inorder)
   print('********** POSTORDER TRAVERSAL **********')
   printPostOrder(preorder, inorder, n)
-
+  print('')
 
 if __name__ == '__main__':
   main()
@@ -52,7 +52,7 @@ if __name__ == '__main__':
 
 # Output:
 # -------
-# 
+#
 # ********** PREORDER TRAVERSAL ***********
 # Preorder:  [1, 2, 4, 5, 3, 6]
 # ********** INORDER TRAVERSAL ************

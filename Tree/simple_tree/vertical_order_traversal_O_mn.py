@@ -4,15 +4,15 @@
 #         1
 #       /   \
 #      2     3
-#     / \   / \ 
+#     / \   / \
 #    4   5 6   7
 #           \  /\
 #           8 10 9
 #              \
 #              11
 #               \
-#                12    
-# 
+#                12
+#
 # min --> Minimum horizontal distance from root
 # max --> Maximum horizontal distance from root
 # hd  --> Horizontal distance of current node from root
@@ -23,10 +23,9 @@
 
 class Node:
   def __init__(self, value):
-    self.data = value
+    self.info = value
     self.left = None
     self.right = None
-    self.hd = 0
 
 class Tree:
   def __init__(self):
@@ -35,7 +34,7 @@ class Tree:
   def treeTraversalInOrder(self, root):
     if root:
       self.treeTraversalInOrder(root.left)
-      print root.data,
+      print(root.info, end=' ')
       self.treeTraversalInOrder(root.right)
 
 def minMaxOfTree(root, min, max, hd):
@@ -54,7 +53,7 @@ def verticalOrderTraversal(root, line_no, hd):
     return
 
   if line_no == hd:
-    print root.data, 
+    print(root.info, end=' ')
 
   verticalOrderTraversal(root.left, line_no, hd - 1)
   verticalOrderTraversal(root.right, line_no, hd + 1)
@@ -63,18 +62,18 @@ def verticalOrderTraversal(root, line_no, hd):
 def main():
   print('***************** TREE ******************\n')
   t = Tree()
-  root = Node(1) 
-  root.left = Node(2) 
-  root.right = Node(3) 
-  root.left.left = Node(4) 
-  root.left.right = Node(5) 
-  root.right.left = Node(6) 
-  root.right.right = Node(7) 
-  root.right.left.right =Node(8) 
-  root.right.right.left = Node(10) 
-  root.right.right.right = Node(9) 
-  root.right.right.left.right = Node(11) 
-  root.right.right.left.right.right = Node(12) 
+  root = Node(1)
+  root.left = Node(2)
+  root.right = Node(3)
+  root.left.left = Node(4)
+  root.left.right = Node(5)
+  root.right.left = Node(6)
+  root.right.right = Node(7)
+  root.right.left.right =Node(8)
+  root.right.right.left = Node(10)
+  root.right.right.right = Node(9)
+  root.right.right.left.right = Node(11)
+  root.right.right.left.right.right = Node(12)
   print('********** INORDER TRAVERSAL ************')
   t.treeTraversalInOrder(root)
   print('\n***** VERTICAL ORDER TRAVERSAL*********')
@@ -84,7 +83,7 @@ def main():
   minMaxOfTree(root, min, max, hd)
   for line_no in range(min[0], max[0] + 1):
     verticalOrderTraversal(root, line_no, hd)
-    print
+    print('')
 
 
 if __name__ == '__main__':
@@ -93,11 +92,11 @@ if __name__ == '__main__':
 
 # Output:
 # -------
-# 
+#
 # ***************** TREE ******************
-# 
+#
 # ********** INORDER TRAVERSAL ************
-# 4 2 5 1 6 8 3 10 11 12 7 9 
+# 4 2 5 1 6 8 3 10 11 12 7 9
 # ***** VERTICAL ORDER TRAVERSAL*********
 # 4
 # 2

@@ -1,16 +1,16 @@
 # 1) Create an empty stack S.
 # 2) Initialize current node as root
 # 3) Push the current node to S and set current = current->left until current is NULL
-# 4) If current is NULL and stack is not empty then 
+# 4) If current is NULL and stack is not empty then
 #      a) Pop the top item from stack.
-#      b) Print the popped item, set current = popped_item->right 
+#      b) Print the popped item, set current = popped_item->right
 #      c) Go to step 3.
 # 5) If current is NULL and stack is empty then we are done.
 #         10
 #       /   \
 #      20   30
-#     / \     
-#    40 50 
+#     / \
+#    40 50
 # O(n)
 
 
@@ -45,7 +45,7 @@ class Tree:
         current = current.left
       elif s:
         current = s.pop()
-        print current.data,
+        print(current.data, end=' ')
         current = current.right
       else:
         break
@@ -57,6 +57,7 @@ def main():
   t.createTree()
   print('********** INORDER TRAVERSAL ************')
   t.treeTraversalInOrder()
+  print('')
 
 
 if __name__ == '__main__':
@@ -66,6 +67,6 @@ if __name__ == '__main__':
 # Output:
 # -------
 # ***************** TREE ******************
-# 
+#
 # ********** INORDER TRAVERSAL ************
 # 40 20 50 10 30

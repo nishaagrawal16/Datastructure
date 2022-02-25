@@ -10,10 +10,9 @@
 
 class Node:
   def __init__(self, value):
-    self.data = value
+    self.info = value
     self.left = None
     self.right = None
-    self.hd = 0
 
 class Tree:
   def __init__(self):
@@ -36,14 +35,14 @@ class Tree:
       precedence_sum = 0
       self.SumOfPrecedence(root.left)
       self.SumOfPrecedence(root.right)
-      print root.data,
+      print(root.info, end=' ')
       if root.left:
-        precedence_sum = precedence_sum + root.left.data
+        precedence_sum = precedence_sum + root.left.info
       if root.right:
-        precedence_sum = precedence_sum + root.right.data
+        precedence_sum = precedence_sum + root.right.info
       if precedence_sum:
-        root.data = precedence_sum
-      print "Sum of nodes precedence: ", root.data
+        root.info = precedence_sum
+      print("Sum of nodes precedence: ", root.info)
 
   def sumOfPrecedenceWithOutRecursion(self, root):
     if root is None:
@@ -55,20 +54,20 @@ class Tree:
         s.append(root.left)
         root = root.left
       elif s:
-        precedence_sum = 0      
+        precedence_sum = 0
         root = s.pop()
-        print root.data,
+        print(root.info, end=' ')
         if root.left:
-          precedence_sum = precedence_sum + root.left.data
+          precedence_sum = precedence_sum + root.left.info
         if root.right:
-          precedence_sum = precedence_sum + root.right.data
+          precedence_sum = precedence_sum + root.right.info
         if precedence_sum:
-          root.data = precedence_sum
-        print "Sum of nodes precedence: ", root.data
+          root.info = precedence_sum
+        print("Sum of nodes precedence: ", root.info)
         if root.right:
           root = root.right
       else:
-        break          
+        break
 
 
 def main():
@@ -77,7 +76,7 @@ def main():
   t.createTree()
   t.SumOfPrecedence(t.root)
   # t.sumOfPrecedenceWithOutRecursion(t.root)
-  
+
 
 if __name__ == '__main__':
   main()
@@ -85,9 +84,9 @@ if __name__ == '__main__':
 
 # Output:
 # -------
-# 
+#
 # ***************** TREE ******************
-# 
+#
 # 40 Sum of nodes precedence:  40
 # 50 Sum of nodes precedence:  50
 # 20 Sum of nodes precedence:  90

@@ -1,8 +1,8 @@
 #         10
 #       /   \
 #      20   30
-#     / \     
-#    40 50     
+#     / \
+#    40 50
 # O(n)
 
 class Node:
@@ -30,7 +30,7 @@ class Tree:
 
   def treeTraversaPreOrder(self, root):
     if root:
-      print(root.info)
+      print(root.info, end=' ')
       self.treeTraversaPreOrder(root.left)
       self.treeTraversaPreOrder(root.right)
 
@@ -41,11 +41,11 @@ class Tree:
         print(root.info)
       self.NthNodeOfPreOrderTraversal(root.left, n)
       self.NthNodeOfPreOrderTraversal(root.right, n)
-       
-  def treeTraversalInOrder(self, root):    
+
+  def treeTraversalInOrder(self, root):
     if root:
       self.treeTraversalInOrder(root.left)
-      print(root.info)
+      print(root.info, end=' ')
       self.treeTraversalInOrder(root.right)
 
   def NthNodeOfInOrderTraversal(self, root, n):
@@ -60,7 +60,7 @@ class Tree:
     if root:
       self.treeTraversalPostOrder(root.left)
       self.treeTraversalPostOrder(root.right)
-      print(root.info)
+      print(root.info, end=' ')
 
   def NthNodeOfPostOrderTraversal(self, root, n):
     if root:
@@ -78,19 +78,19 @@ def main():
   print('********** PREORDER TRAVERSAL ***********')
   t.treeTraversaPreOrder(t.root)
 
-  print('********** PREORDER TRAVERSAL 3rd ************')
+  print('\n********** PREORDER TRAVERSAL 3rd ************')
   t.NthNodeOfPreOrderTraversal(t.root, 3)
 
   print('********** INORDER TRAVERSAL ************')
   t.treeTraversalInOrder(t.root)
   t.count = 0
-  print('********** INORDER TRAVERSAL 3rd ************')
+  print('\n********** INORDER TRAVERSAL 3rd ************')
   t.NthNodeOfInOrderTraversal(t.root, 3)
 
   print('********** POSTORDER TRAVERSAL **********')
   t.treeTraversalPostOrder(t.root)
   t.count = 0
-  print('********** POSTORDER TRAVERSAL 3rd ************')
+  print('\n********** POSTORDER TRAVERSAL 3rd ************')
   t.NthNodeOfPostOrderTraversal(t.root, 3)
 
 
@@ -101,28 +101,17 @@ if __name__ == '__main__':
 # Output:
 # ------
 # ***************** TREE ******************
-# 
+#
 # ********** PREORDER TRAVERSAL ***********
-# 10
-# 20
-# 40
-# 50
-# 30
+# 10 20 40 50 30
 # ********** PREORDER TRAVERSAL 3rd ************
 # 40
 # ********** INORDER TRAVERSAL ************
-# 40
-# 20
-# 50
-# 10
-# 30
+# 40 20 50 10 30
 # ********** INORDER TRAVERSAL 3rd ************
 # 50
 # ********** POSTORDER TRAVERSAL **********
-# 40
-# 50
-# 20
-# 30
-# 10
+# 40 50 20 30 10
 # ********** POSTORDER TRAVERSAL 3rd ************
 # 20
+

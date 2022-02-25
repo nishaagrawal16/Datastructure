@@ -4,9 +4,11 @@
 #         10
 #       /   \
 #      20   30
-#     / \     
-#    40 50     
+#     / \
+#    40 50
 # O(n)
+
+import collections
 
 class Node:
   def __init__(self, value):
@@ -33,7 +35,7 @@ class Tree:
   def treeTraversalInOrder(self, root):
     if root:
       self.treeTraversalInOrder(root.left)
-      print root.info,
+      print(root.info, end=' ')
       self.treeTraversalInOrder(root.right)
 
   def viewLeft(self, root):
@@ -43,13 +45,36 @@ class Tree:
   def viewLeftUtil(self, root, level, max_level):
     if root is None:
       return
-    
+
     if max_level[0] < level:
-      print root.info, 
+      print(root.info, end=' ')
       max_level[0] = level
-      
+
     self.viewLeftUtil(root.left, level + 1, max_level)
     self.viewLeftUtil(root.right, level + 1, max_level)
+
+  def viewLeftThroughIteration(self, root):
+    if root is None:
+      return
+
+    hd = 0
+    q = collections.deque([(root, hd)])
+
+    while len(q):
+      n = len(q)
+
+      # This is for checking to all level.
+      for i in range(n):
+        root, hd = q.popleft()
+        # For printing the first node of every level as left view.
+        if i == 0:
+          print(root.info, end=' ')
+
+        if root.left:
+          q.append((root.left, hd - 1))
+
+        if root.right:
+          q.append((root.right, hd + 1))
 
 
 def main():
@@ -60,7 +85,9 @@ def main():
   t.treeTraversalInOrder(t.root)
   print('\n************* Left VIEW ***************')
   t.viewLeft(t.root)
-
+  print('\n************* Left VIEW THROUGH ITERATION ***************')
+  t.viewLeftThroughIteration(t.root)
+  print('')
 
 if __name__ == '__main__':
   main()
@@ -68,10 +95,10 @@ if __name__ == '__main__':
 
 # Output:
 # -------
-# 
+#
 # ***************** TREE ******************
-# 
+#
 # ********** INORDER TRAVERSAL ************
-# 40 20 50 10 30 
+# 40 20 50 10 30
 # ************* Left VIEW ***************
 # 10 20 40

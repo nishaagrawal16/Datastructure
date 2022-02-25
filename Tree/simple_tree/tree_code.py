@@ -1,8 +1,8 @@
 #         10
 #       /   \
 #      20   30
-#     / \     
-#    40 50     
+#     / \
+#    40 50
 # O(n)
 
 class Node:
@@ -29,28 +29,28 @@ class Tree:
 
   def treeTraversaPreOrder(self, root):
     if root:
-      print(root.info)
+      print(root.info, end=' ')
       self.treeTraversaPreOrder(root.left)
       self.treeTraversaPreOrder(root.right)
 
   def treeTraversalInOrder(self, root):
     if root:
       self.treeTraversalInOrder(root.left)
-      print(root.info)
+      print(root.info, end=' ')
       self.treeTraversalInOrder(root.right)
 
   def treeTraversalPostOrder(self, root):
     if root:
       self.treeTraversalPostOrder(root.left)
       self.treeTraversalPostOrder(root.right)
-      print(root.info)
+      print(root.info, end=' ')
 
   # Description:
   # Level order traversal of tree.
   #
   # Approach:
   # Uses DFS traversal approach.
-  # 1. Prints current node data.
+  # 1. Prints current node info.
   # 2. enqueue's both left and right child.
   # 3. dequeue a node from queue.
   # 4. Execute while queue is not empty.
@@ -68,7 +68,7 @@ class Tree:
     q.append(root)
     while len(q):
       root = q.pop(0)
-      print(root.info)
+      print(root.info, end=' ')
       if root.left:
         q.append(root.left)
       if root.right:
@@ -80,12 +80,13 @@ def main():
   t.createTree()
   print('********** PREORDER TRAVERSAL ***********')
   t.treeTraversaPreOrder(t.root)
-  print('********** INORDER TRAVERSAL ************')
+  print('\n********** INORDER TRAVERSAL ************')
   t.treeTraversalInOrder(t.root)
-  print('********** POSTORDER TRAVERSAL **********')
+  print('\n********** POSTORDER TRAVERSAL **********')
   t.treeTraversalPostOrder(t.root)
-  print('********* LEVEL ORDER TRAVERSAL **********')
+  print('\n********* LEVEL ORDER TRAVERSAL **********')
   t.levelOrderTraversal(t.root)
+  print('')
 
 
 if __name__ == '__main__':
@@ -93,30 +94,14 @@ if __name__ == '__main__':
 
 
 # Output:
-# ------  
+# ------
 # ***************** TREE ******************
-# 
+
 # ********** PREORDER TRAVERSAL ***********
-# 10
-# 20
-# 40
-# 50
-# 30
+# 10 20 40 50 30
 # ********** INORDER TRAVERSAL ************
-# 40
-# 20
-# 50
-# 10
-# 30
+# 40 20 50 10 30
 # ********** POSTORDER TRAVERSAL **********
-# 40
-# 50
-# 20
-# 30
-# 10
+# 40 50 20 30 10
 # ********* LEVEL ORDER TRAVERSAL **********
-# 10
-# 20
-# 30
-# 40
-# 50
+# 10 20 30 40 50

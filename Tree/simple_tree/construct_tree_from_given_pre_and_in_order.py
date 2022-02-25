@@ -11,8 +11,8 @@
 
 
 class Node:
-  def __init__(self, data):
-    self.data = data
+  def __init__(self, info):
+    self.info = info
     self.left = None
     self.right = None
 
@@ -23,7 +23,7 @@ class Tree:
   def treeTraversalInOrder(self, root):
     if root:
       self.treeTraversalInOrder(root.left)
-      print root.data, 
+      print(root.info, end=' ')
       self.treeTraversalInOrder(root.right)
 
 def buildTree(preorder, inorder, n):
@@ -31,7 +31,7 @@ def buildTree(preorder, inorder, n):
     rootIndx = inorder.index(preorder[0])
     tNode = Node(preorder[0])
   else:
-    print 'root not found'
+    print('root not found')
     return
 
   # Creating left subtree present
@@ -39,29 +39,29 @@ def buildTree(preorder, inorder, n):
     tNode.left = buildTree(preorder[1: rootIndx+1],
               inorder[:rootIndx],
               len(inorder[:rootIndx]))
-  
+
   # Creating right subtree present
   if rootIndx != n-1:
     tNode.right = buildTree(preorder[rootIndx+1:],
                    inorder[rootIndx+1:],
                    len(inorder[rootIndx+1:]))
-  print 'returned data: ', tNode.data
+  print('returned info: ', tNode.info)
   return tNode
-  
+
 def main():
   preorder = [1, 2, 4, 5, 3, 6]
   inorder = [4, 2, 5, 1, 3, 6]
   if len(preorder) == len(inorder):
     n = len(preorder)
   else:
-    print 'Preorder and inorder is not of the same tree'
+    print('Preorder and inorder is not of the same tree')
     return
   print('**************** TREE ******************')
   root = buildTree(preorder, inorder, n)
   t = Tree()
   print('********** INORDER TRAVERSAL ************')
   t.treeTraversalInOrder(root)
-
+  print('')
 
 if __name__ == '__main__':
   main()
@@ -70,11 +70,11 @@ if __name__ == '__main__':
 # Output:
 # -------
 # **************** TREE ******************
-# returned data:  4
-# returned data:  5
-# returned data:  2
-# returned data:  6
-# returned data:  3
-# returned data:  1
+# returned info:  4
+# returned info:  5
+# returned info:  2
+# returned info:  6
+# returned info:  3
+# returned info:  1
 # ********** INORDER TRAVERSAL ************
 # 4 2 5 1 3 6

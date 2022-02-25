@@ -5,16 +5,17 @@
 #        10
 #       /  \
 #      20  30
-#     /  \     
-#    40  50     
+#     /  \
+#    40  50
 # O(n)
+
+import collections
 
 class Node:
   def __init__(self, value):
-    self.data = value
+    self.info = value
     self.left = None
     self.right = None
-    self.hd = 0
 
 class Tree:
   def __init__(self):
@@ -35,33 +36,30 @@ class Tree:
   def treeTraversalInOrder(self, root):
     if root:
       self.treeTraversalInOrder(root.left)
-      print root.data,
+      print(root.info, end=' ')
       self.treeTraversalInOrder(root.right)
 
   def viewBottom(self, root):
     if root is None:
       return
-    q = []
-    m = dict()
+    m = {}
     hd = 0
-    root.hd = hd
-    q.append(root)
+    q = collections.deque([(root, hd)])
+
     while len(q):
-      root = q.pop(0)
-      hd = root.hd
+      root, hd = q.popleft()
       # Overwrite hd values with new value for getting the bottom view.
-      m[hd] = root.data
+      m[hd] = root.info
 
       if root.left:
-        root.left.hd = hd - 1
-        q.append(root.left)
+        q.append((root.left, hd - 1))
 
       if root.right:
-        root.right.hd = hd + 1
-        q.append(root.right)
+        q.append((root.right, hd + 1))
 
     for key in sorted(m):
-      print m[key]
+      print(m[key], end=' ')
+    print('')
 
 
 def main():
@@ -72,7 +70,7 @@ def main():
   t.treeTraversalInOrder(t.root)
   print('\n************* BOTTOM VIEW ***************')
   t.viewBottom(t.root)
-  
+
 
 if __name__ == '__main__':
   main()
@@ -80,13 +78,11 @@ if __name__ == '__main__':
 
 # Output:
 # -------
-# 
+#
 # ***************** TREE ******************
-# 
+#
 # ********** INORDER TRAVERSAL ************
-# 40 20 50 10 30 
+# 40 20 50 10 30
 # ************* BOTTOM VIEW ***************
-# 40
-# 20
-# 50
-# 30
+# 40 20 50 30
+

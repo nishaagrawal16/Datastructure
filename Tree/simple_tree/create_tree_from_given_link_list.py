@@ -33,14 +33,14 @@ class SingleLinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print p.info,
+      print(p.info, end=' ')
       p = p.next
     print('None')
 
 
 class TreeNode:
   def __init__(self, value):
-    self.data = value
+    self.info = value
     self.left = None
     self.right = None
 
@@ -48,10 +48,10 @@ class Tree:
   def __init__(self):
     self.root = None
 
-  def treeTraversalInOrder(self, root):    
+  def treeTraversalInOrder(self, root):
     if root:
       self.treeTraversalInOrder(root.left)
-      print root.data,
+      print(root.info, end=' ')
       self.treeTraversalInOrder(root.right)
 
 def create_tree(start):
@@ -68,14 +68,14 @@ def create_tree(start):
     left_child = TreeNode(current.info)
     q.append(left_child)
     current = current.next
-    if current is not None:      
+    if current is not None:
       right_child = TreeNode(current.info)
       q.append(right_child)
-      current = current.next      
+      current = current.next
     parent.left = left_child
     parent.right = right_child
-    
-  print('*********** TRAVERSE TREE ***************') 
+
+  print('*********** TRAVERSE TREE ***************')
   t.treeTraversalInOrder(t.root)
 
 def main():
@@ -85,7 +85,7 @@ def main():
   print('*********** TRAVERSE LIST ***************')
   link_list.traverse()
   create_tree(link_list.start)
-  
+  print('')
 
 if __name__ == '__main__':
   main()

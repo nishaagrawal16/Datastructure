@@ -4,8 +4,8 @@
 #         10
 #       /   \
 #      20   30
-#     / \     
-#    40 50     
+#     / \
+#    40 50
 # O(n)
 
 class Node:
@@ -33,15 +33,15 @@ class Tree:
   def treeTraversalInOrder(self, root):
     if root:
       self.treeTraversalInOrder(root.left)
-      print root.info,
+      print(root.info, end=' ')
       self.treeTraversalInOrder(root.right)
 
-# Computes the number of nodes in tree 
-def size(node): 
-  if node is None: 
-    return 0 
-  else: 
-    return (size(node.left) + 1 + size(node.right)) 
+# Computes the number of nodes in tree
+def size(node):
+  if node is None:
+    return 0
+  else:
+    return (size(node.left) + 1 + size(node.right))
 
 def main():
   print('***************** TREE ******************\n')
@@ -58,10 +58,10 @@ if __name__ == '__main__':
 
 # Output:
 # -------
-# 
+#
 # ***************** TREE ******************
-# 
+#
 # ********** INORDER TRAVERSAL ************
-# 40 20 50 10 30 
+# 40 20 50 10 30
 # ************* TREE SIZE ***************
 # 5
