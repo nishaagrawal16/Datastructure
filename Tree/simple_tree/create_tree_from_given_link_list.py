@@ -8,6 +8,7 @@
 # 10 -> 20 -> 30 -> 40 -> 50 -> None
 # O(n)
 
+import collections
 
 class Node:
   def __init__(self, value):
@@ -55,14 +56,14 @@ class Tree:
       self.treeTraversalInOrder(root.right)
 
 def create_tree(start):
-  q = []
+
   current = start
   t = Tree()
   t.root = TreeNode(current.info)
-  q.append(t.root)
+  q = collections.deque([t.root])
   current = current.next
   while current is not None:
-    parent = q.pop(0)
+    parent = q.popleft()
     left_child = None
     right_child = None
     left_child = TreeNode(current.info)

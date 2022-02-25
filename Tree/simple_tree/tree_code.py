@@ -5,6 +5,8 @@
 #    40 50
 # O(n)
 
+import collections
+
 class Node:
   def __init__(self, value):
     self.info = value
@@ -64,10 +66,10 @@ class Tree:
   def levelOrderTraversal(self, root):
     if root is None:
       return
-    q = []
-    q.append(root)
+    q = collections.deque([root])
+
     while len(q):
-      root = q.pop(0)
+      root = q.popleft()
       print(root.info, end=' ')
       if root.left:
         q.append(root.left)

@@ -7,6 +7,8 @@
 #    40 50
 # O(n)
 
+import collections
+
 class Node:
   def __init__(self, value):
     self.info = value
@@ -40,11 +42,11 @@ def size(root):
   if root is None:
     return 0
 
-  q = []
   count = 1
-  q.append(root)
+  q = collections.deque([root])
+
   while len(q):
-    root = q.pop(0)
+    root = q.popleft()
     if root.left:
       q.append(root.left)
       count = count + 1
