@@ -44,6 +44,31 @@ def buildTree(levelorder, inorder):
   print('returned info: ', tNode.info)
   return tNode
 
+# O(n)
+def build_tree(levelorder, inorder):
+  def array_of_tree(levelorder, inorder):
+    if not inorder:
+      return None
+
+    for i in range(0, len(levelorder)):
+      if levelorder[i] in inorder:
+        rootIndx = inorder.index(levelorder[i])
+        root = Node(levelorder[i])
+        break
+
+    # Creating left subtree present
+    root.left = buildTree(levelorder, inorder[:rootIndx])
+
+    # Creating right subtree present
+    root.right = buildTree(levelorder, inorder[rootIndx+1:])
+    return root
+
+  map_of_inorder_value = {}
+  for index, value in enumerate(levelorder):
+    map_of_inorder_value[value] = index
+  return array_of_tree(levelorder, inorder)
+
+
 def main():
   inorder = [4, 2, 5, 1, 3, 6]
   levelorder = [1, 2, 3, 4, 5, 6]
@@ -53,6 +78,10 @@ def main():
   print('**************** TREE ******************')
   root = buildTree(levelorder, inorder)
   t = Tree()
+  print('********** INORDER TRAVERSAL ************')
+  t.treeTraversalInOrder(root)
+  print('')
+  root = build_tree(levelorder, inorder)
   print('********** INORDER TRAVERSAL ************')
   t.treeTraversalInOrder(root)
   print('')
