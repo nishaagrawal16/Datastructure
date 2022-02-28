@@ -16,6 +16,12 @@ class Tree:
   def __init__(self):
     self.root = None
 
+  def treeTraversalInOrder(self, root):
+    if root:
+      self.treeTraversalInOrder(root.left)
+      print(root.info, end=' ')
+      self.treeTraversalInOrder(root.right)
+
   def treeTraversalPostOrder(self, root, post_order):
     if root:
       self.treeTraversalPostOrder(root.left, post_order)
@@ -45,6 +51,27 @@ def buildTree(preorder, inorder, n):
   print('returned info: ', tNode.info)
   return tNode
 
+# O(n)
+def build_tree(preorder, inorder):
+  def array_of_tree(left, right):
+    nonlocal preIndex
+    if left > right:
+      return None
+
+    root_value = preorder[preIndex]
+    root = Node(root_value)
+    preIndex += 1
+    root.left = array_of_tree(left, map_of_inorder_value[root_value] - 1)
+    root.right = array_of_tree(map_of_inorder_value[root_value] + 1, right)
+
+    return root
+
+  preIndex = 0
+  map_of_inorder_value = {}
+  for index, value in enumerate(inorder):
+    map_of_inorder_value[value] = index
+  return array_of_tree(0, len(inorder) - 1)
+
 def main():
   preorder = [1, 2, 4, 5, 3, 6]
   inorder = [4, 2, 5, 1, 3, 6]
@@ -63,7 +90,12 @@ def main():
   root = buildTree(preorder, inorder, n)
   t = Tree()
   print('********** INORDER TRAVERSAL ************')
+  t.treeTraversalInOrder(root)
   post_order = []
+  print('\n********** POST ORDER TRAVERSAL ************')
+  t.treeTraversalPostOrder(root, post_order)
+  root = build_tree(preorder, inorder)
+  print('\n********** POST ORDER TRAVERSAL ************')
   t.treeTraversalPostOrder(root, post_order)
   if post_order == postorder:
     print('\nGiven Preorder, Inorder and Postorder traversals are of same tree')

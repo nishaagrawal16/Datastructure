@@ -44,7 +44,7 @@ def buildTree(levelorder, inorder):
   print('returned info: ', tNode.info)
   return tNode
 
-# O(n)
+# O(n2)
 def build_tree(levelorder, inorder):
   def array_of_tree(levelorder, inorder):
     if not inorder:
@@ -52,7 +52,7 @@ def build_tree(levelorder, inorder):
 
     for i in range(0, len(levelorder)):
       if levelorder[i] in inorder:
-        rootIndx = inorder.index(levelorder[i])
+        rootIndx = map_of_inorder_value[levelorder[i]]
         root = Node(levelorder[i])
         break
 
@@ -64,7 +64,7 @@ def build_tree(levelorder, inorder):
     return root
 
   map_of_inorder_value = {}
-  for index, value in enumerate(levelorder):
+  for index, value in enumerate(inorder):
     map_of_inorder_value[value] = index
   return array_of_tree(levelorder, inorder)
 

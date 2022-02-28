@@ -11,6 +11,7 @@
 # Insert, search, delete - O(logn) in avarage case(Balanced binary tree)
 # otherwise in worst case O(n) (Not balanced tree means only has left child or right child)
 # Traversal - O(n)
+# **Inorder traversal in binary serach tree will give so the sorted array.**
 # Limitation:
 # If BST is not balanced (or skwed trees), it becomes a linked list and all
 # operations take O(n) complexity. This problem is handled by balancing trees.
@@ -31,21 +32,17 @@ class Tree:
   def __init__(self):
     self.root = None
 
-  def insert(self, root, node):
+  def insert(self, root, key):
     if root is None:
-      root = node
-      return
-
-    if node.info < root.info:
-      if root.left is None:
-        root.left = node
-      else:
-        self.insert(root.left, node)
+      return Node(key)
     else:
-      if root.right is None:
-        root.right = node
+      if key == root.info:
+        return root
+      elif key < root.info:
+        root.left = self.insert(root.left, key)
       else:
-        self.insert(root.right, node)
+        root.right = self.insert(root.right, key)
+    return root
 
   def treeTraversalInOrder(self, root):
     if root:
@@ -101,12 +98,12 @@ def main():
   print('*****************BINARY TREE ************\n')
   t = Tree()
   t.root = Node(50)
-  t.insert(t.root, Node(30))
-  t.insert(t.root, Node(20))
-  t.insert(t.root, Node(40))
-  t.insert(t.root, Node(70))
-  t.insert(t.root, Node(60))
-  t.insert(t.root, Node(80))
+  t.root = t.insert(t.root, 30)
+  t.root = t.insert(t.root, 20)
+  t.root = t.insert(t.root, 40)
+  t.root = t.insert(t.root, 70)
+  t.root = t.insert(t.root, 60)
+  t.root = t.insert(t.root, 80)
   print('********** INORDER TRAVERSAL ************')
   t.treeTraversalInOrder(t.root)
   print('\n************** SEARCHING ****************')

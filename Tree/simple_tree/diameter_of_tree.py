@@ -1,6 +1,18 @@
-# Write a program to Calculate height of a tree | Recursion
-# height() function recursively calculates the size of a tree. It works as follows:
-# height of a tree = max(height of left subtree, height of right subtree) + 1.
+# Date: 01-03-2022
+#
+# Description:
+# Find diameter(or max width) of a tree. The diameter of a tree is the number of
+# nodes on the longest path between two leaves in the tree.
+#
+# Approach:
+# Diameter of a tree can be calculated by only using the height function,
+# because the diameter of a tree is nothing but maximum value of (left_height + right_height + 1)
+# for each node. So we need to calculate this value (left_height + right_height + 1)
+# for each node and update the result.
+#
+# Reference:
+# https://www.geeksforgeeks.org/diameter-of-a-binary-tree-in-on-a-new-method/
+#
 #         10
 #       /   \
 #      20   30
@@ -36,14 +48,15 @@ class Tree:
       print(root.info, end=' ')
       self.treeTraversalInOrder(root.right)
 
-# Computes height of a tree
-def height(node):
+def height(node, d):
   if node is None:
     return 0
   else:
-    left_height = height(node.left)
-    right_height = height(node.right)
+    left_height = height(node.left, d)
+    right_height = height(node.right, d)
+    d[0] = max(d[0], (left_height + left_height + 1))
     return 1 + max(left_height, right_height)
+
 
 def main():
   print('***************** TREE ******************\n')
@@ -51,8 +64,10 @@ def main():
   t.createTree()
   print('********** INORDER TRAVERSAL ************')
   t.treeTraversalInOrder(t.root)
-  print('\n************* TREE HEIGHT ***************')
-  print(height(t.root))
+  print('\n************* TREE DIAMETER ***************')
+  d = [0]
+  h = height(t.root, d)
+  print('DIAMETER: ', d[0])
 
 
 if __name__ == '__main__':
@@ -66,5 +81,5 @@ if __name__ == '__main__':
 #
 # ********** INORDER TRAVERSAL ************
 # 40 20 50 10 30
-# ************* TREE HEIGHT ***************
-# 3
+# ************* TREE DIAMETER ***************
+# DIAMETER:  5
