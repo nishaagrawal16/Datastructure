@@ -8,6 +8,26 @@
 # parent list.
 #
 # Approach:
+# - If sum of all elements in list comes out to be odd, then it is not possible
+#   to partition list in 2 subsets having same sum
+# - Use recursion to check all combinations, at each element we will have 2
+#   conditions whether to take this element or not.
+#
+# Complexity:
+# O(2^n)
+
+def subset_with_equal_sum(arr, idx, currentSum, target):
+  if currentSum == target:
+    return True
+
+  if idx == len(arr):
+    return False
+
+  return (
+    subset_with_equal_sum(arr, idx + 1, currentSum + arr[idx], target) or
+    subset_with_equal_sum(arr, idx + 1, currentSum, target))
+
+# Approach:
 # ---------
 # - If sum of all elements in list comes out to be odd, then it is not possible
 #   to partition list in 2 subsets having same sum
@@ -15,10 +35,15 @@
 #   We can take a 2D array of size (sum/2 + 1)*(n + 1) and
 #   fill this array using bottom up approach, see comments in program.
 #
+# Reference: https://www.geeksforgeeks.org/partition-problem-dp-18/
+#
+# Above approach becomes inefficient when n is smaller and sum is very large, we
+# waste a lot of memory. In those cases we can use recursion to check all
+# combinations - At each element we will have 2 conditions whether to take this
+# element or not. This approach will have complexity of O(2^n).
 # Complexity:
 # -----------
 # O(n*sum)
-
 
 def checkEqualSumPossible(arr):
   """
@@ -72,12 +97,17 @@ def main():
   arr = [1, 2, 3, 4, 5, 6, 7]
   # arr = [1, 10, 5, 21, 4]
   # arr = [1, 10, 5, 21, 4, 1]
-  is_partitionable = checkEqualSumPossible(arr)
-  if is_partitionable:
+
+  if subset_with_equal_sum(arr, 0, 0, sum(arr)//2):
     print('List is partitionable')
   else:
     print('List is not Partitionable')
 
+  if checkEqualSumPossible(arr):
+    print('List is partitionable')
+  else:
+    print('List is not Partitionable')
+
+
 if __name__ == '__main__':
   main()
-  

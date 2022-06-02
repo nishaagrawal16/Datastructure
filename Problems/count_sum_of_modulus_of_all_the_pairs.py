@@ -23,11 +23,13 @@ class Solutions:
         # i%j with multiply the occurance of numbers.
         result += count[i]*count[j]*(i%j)
     return result
-     
+
 
 def main():
   s = Solutions()
-  print(s.sum_of_mod([1, 2, 4, 4, 4]))
+  array = [1, 2, 4, 4, 4]
+  print('Array: ', array)
+  print('Sum of modulus of each pair: ', s.sum_of_mod(array))
 
 if __name__ == '__main__':
   main()
@@ -35,5 +37,7 @@ if __name__ == '__main__':
 
 # Output:
 # -------
-# ('Occurance of elements: ', [0, 1, 1, 0, 3])
-# 10
+# Array:  [1, 2, 4, 4, 4]
+# Occurance of elements:  [0, 1, 1, 0, 3]
+# Sum of modulus of each pair:  10
+

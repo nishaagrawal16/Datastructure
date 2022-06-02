@@ -17,14 +17,14 @@ class Solutions:
             # For getting the min and max in arr[i] + i
             if arr[i] + i < min1:
                 min1 = arr[i] + i
-            
+
             if arr[i] + i > max1:
                 max1 = arr[i] + i
-            
+
             # For getting the min and max in arr[i] - i
             if arr[i] - i < min2:
                 min2 = arr[i] - i
-            
+
             if arr[i] - i > max2:
                 max2 = arr[i] - i
             i += 1
@@ -39,8 +39,15 @@ class Solutions:
 def main():
     # arr = [1, 2, 3, 1]
     arr = [10, 5, 0]
+    print('Array: ', arr)
     s = Solutions()
     s.find_max(arr)
 
 if __name__ == '__main__':
     main()
+
+# Output:
+# -------
+# Array:  [10, 5, 0]
+# 8 12
+# Max:  12

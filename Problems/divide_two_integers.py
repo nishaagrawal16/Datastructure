@@ -4,8 +4,8 @@
 class Solution:
     def divide(self, dividend, divisor):
         print(2**31, dividend)
- 
-        # print('dividend: ', dividend, divisor)          
+
+        # print('dividend: ', dividend, divisor)
         divisor_neg_flag = False
         dividend_neg_flag = False
         new_divisor = divisor
@@ -27,9 +27,11 @@ class Solution:
         if not (-2**31 <= new_divisor <= 2**31 -1 and -2**31 <= new_dividend <= 2**31 -1):
             print('yes')
             return 2**31 - 1
+        print('dividend_neg_flag: ', dividend_neg_flag)
         if new_divisor == 1:
             if divisor_neg_flag or dividend_neg_flag:
-                return -1*dividend
+                print('new_dividend: ', new_dividend, dividend)
+                return -1*new_dividend
             else:
                 return dividend
         i = 0
@@ -48,10 +50,12 @@ class Solution:
             return -1*result
         else:
             return result
-         
+
 def main():
     s = Solution()
-    result = s.divide(-2147483648, -1)
+    # result = s.divide(-2147483648, -1)
+    result = s.divide(-1, 1)
+
     print('Answer: ', result)
 
 if __name__ == '__main__':
