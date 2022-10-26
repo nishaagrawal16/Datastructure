@@ -41,10 +41,8 @@ class Solutions:
     return second
 
   def climbingStairsusingRecur(self, n):
-    if n == 1:
-      return 1
-    if n == 2:
-      return 2    
+    if n < 3:
+      return n
     return self.climbingStairsusingRecur(n-1) + self.climbingStairsusingRecur(n-2)
 
 
