@@ -1,5 +1,8 @@
-# Need to solve it TODO
-# +++++++++++++++++++
+#!/usr/bin/python
+
+# Date: 2022-10-26
+#
+# Problem: https://leetcode.com/problems/integer-to-roman/
 
 class Solution(object):
     def intToRoman(self, num):
@@ -7,49 +10,29 @@ class Solution(object):
         :type num: int
         :rtype: str
         """
-        if num <= 0:
-            return 0
-        roman_dic = {1: 'I', 5: 'V', 10: 'X', 50: 'L', 100: 'C',
-                     500: 'D', 1000: 'M', 4: 'IV', 9:'IX', }
-        if num in roman_dic.keys():
-            return roman_dic[num]
-        n = len(str(num))    
-        mul = 1
-        li = [0]*n
-        i = n - 1
-        while num > 0:
-            rem = num % 10
-            li[i] = rem * mul
-            num = num/10
-            mul = mul*10
-            i = i - 1
-        print(li)
-        roman = ''
-        for i in range(len(li)):
-            if li[i] in roman_dic.keys():
-                roman += roman_dic[li[i]]
-            else:
-                if li[i] < 4:
-                    roman += 'I'*li[i]
-
-                elif li[i] < 9:
-                    roman += 'V'+ 'I'*(li[i] - 5)
-
-                elif li[i] < 40:
-                    roman += 'X' + ''*(li[i] - 5)
-                elif li[i] < 90:
-
-                elif li[i] < 400:
-
-                elif li[i] < 900:
-
+        values = [ 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 ]
+        numerals = [ "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" ]
+        res, i = "", 0
+        while num:
+            res += (num//values[i]) * numerals[i]
+            num %= values[i]
+            i += 1
+        return res
 
 
 
 
 def main():
     s = Solution()
-    print(':', s.intToRoman(123))
+    for n in [3, 58, 123, 1994]:
+        print('%d: %s' % (n, s.intToRoman(n)))
 
 if __name__ == '__main__':
     main()
+
+# Output
+# ------
+# 3: III
+# 58: LVIII
+# 123: CXXIII
+# 1994: MCMXCIV
