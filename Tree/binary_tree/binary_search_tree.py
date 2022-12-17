@@ -5,12 +5,13 @@
 # - Search in BST
 # - Delete from BST
 # Reference:
+# Inorder Successor[O(logn)]: https://www.youtube.com/watch?v=5cPbNCrdotA&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=37
 # http://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/
 # http://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
 # Complexity:
 # Insert, search, delete - O(logn) in avarage case(Balanced binary tree)
 # otherwise in worst case O(n) (Not balanced tree means only has left child or right child)
-# Traversal - O(n)
+# Traversal [O(n)]
 # **Inorder traversal in binary serach tree will give so the sorted array.**
 # Limitation:
 # If BST is not balanced (or skwed trees), it becomes a linked list and all
@@ -22,51 +23,39 @@
 #     / \    / \
 #    20 40  60 80
 
-class Node:
-  def __init__(self, value):
-    self.info = value
+import math
+
+class TreesNode(object):
+  def __init__(self, data) -> None:
+    self.data = data
     self.left = None
     self.right = None
 
-class Tree:
+class Tree(object):
   def __init__(self):
     self.root = None
 
-  def insert(self, root, key):
-    if root is None:
-      return Node(key)
+  def insert(self, root, data):
+    if root == None:
+      root = TreesNode(data)
+    elif data <= root.data:
+      root.left = self.insert(root.left, data)
     else:
-      if key == root.info:
-        return root
-      elif key < root.info:
-        root.left = self.insert(root.left, key)
-      else:
-        root.right = self.insert(root.right, key)
+      root.right = self.insert(root.right, data)
     return root
-
-  def treeTraversalInOrder(self, root):
-    if root:
-      self.treeTraversalInOrder(root.left)
-      print(root.info, end=' ')
-      self.treeTraversalInOrder(root.right)
-
-  def search(self, root, val):
-    if root is None or root.info == val:
-      return root
-    if val < root.info:
-      return self.search(root.left, val)
-    return self.search(root.right, val)
 
   def delete(self, root, val):
     if root is None:
       return root
-
-    if val < root.info:
+    if val < root.data:
       root.left = self.delete(root.left, val)
-    elif val > root.info:
+    elif val > root.data:
       root.right = self.delete(root.right, val)
     else:
-      # root has only one child or no child
+      # No child
+      if root.left is None and root.right is None:
+        return None
+      # One child
       if root.left is None:
         temp = root.right
         root = None
@@ -76,28 +65,76 @@ class Tree:
         temp = root.left
         root = None
         return temp
-
-      # Node with two children: Get the inorder successor
-      # (smallest in the right subtree)
-      temp = self.minValueNode(root.right)
-
-      root.info = temp.info
-
-      root.right = self.delete(root.right, temp.info)
+      # Two children: Get the inorder successor
+      # find smallest in the right subtree.
+      temp = minValue(root.right)
+      root.data = temp.data
+      root.right = self.delete(root.right, temp.data)
     return root
 
+  def InOrdertreeTraversal(self, root):
+    if root == None:
+      return
+    self.InOrdertreeTraversal(root.left)
+    print(root.data, end=' ')
+    self.InOrdertreeTraversal(root.right)
 
-  def minValueNode(self, root):
-    current = root
-    while current.left is not None:
-      current = current.left
+  def search(self, root, val):
+    if root is None or root.data == val:
+      return root
+    if val < root.data:
+      return self.search(root.left, val)
+    return self.search(root.right, val)
 
-    return current
+  def getSuccessor(self, root, val):
+    if root is None:
+      return root
+    # Find the current.
+    current = self.search(root, val)
+
+    # Has right subtree
+    if current.right is not None:
+      # find min of right subtree
+      return minValue(current)
+    else:
+      # Has no right subtree
+      successor = None
+      ancestor = root
+      while current != ancestor:
+        if current.data < ancestor.data:
+          # So far this is the deepest node for which
+          # current node is in left.
+          successor = ancestor
+          ancestor = ancestor.left
+        else:
+          ancestor = ancestor.right
+      return successor
+
+def minValue(root):
+  current = root
+  while current.left is not None:
+    current = current.left
+  return current
+
+def checkBST(root, min_value, max_value):
+  if root == None:
+    return True
+  if (root.data > min_value and root.data < max_value
+      and checkBST(root.left, min_value, root.data) and
+      checkBST(root.right, root.data, max_value)):
+    return True
+  else:
+    return False
+
+# O(n)
+def checkBSTUtils(root):
+  return checkBST(root, -math.inf, math.inf)
+
 
 def main():
-  print('*****************BINARY TREE ************\n')
+  print('*****************BINARY TREE ************')
   t = Tree()
-  t.root = Node(50)
+  t.root = TreesNode(50)
   t.root = t.insert(t.root, 30)
   t.root = t.insert(t.root, 20)
   t.root = t.insert(t.root, 40)
@@ -105,31 +142,44 @@ def main():
   t.root = t.insert(t.root, 60)
   t.root = t.insert(t.root, 80)
   print('********** INORDER TRAVERSAL ************')
-  t.treeTraversalInOrder(t.root)
-  print('\n************** SEARCHING ****************')
+  t.InOrdertreeTraversal(t.root)
+  print('\n** Check Tree is Binary Search tree ***')
+  if checkBSTUtils(t.root):
+    print('Yes')
+  else:
+    print('No')
+  print('************ SEARCHING 60 ***************')
   if t.search(t.root, 60):
     print('value found')
   else:
     print('value is not present in the tree')
+  print('************ SEARCHING 10 ***************')
+  if t.search(t.root, 10):
+    print('value found')
+  else:
+    print('value is not present in the tree')
+  print('************* Successor of 60 ***********')
+  successor = t.getSuccessor(t.root, 60)
+  if successor:
+    print(successor.data)
   print('************** DELETION 20 ***************')
   t.delete(t.root, 20)
   print('********** INORDER TRAVERSAL *************')
-  t.treeTraversalInOrder(t.root)
-  print('\n************** SEARCHING *****************')
+  t.InOrdertreeTraversal(t.root)
+  print('\n************* SEARCHING 30 *************')
   if t.search(t.root, 30):
     print('value found')
   else:
     print('value is not present in the tree')
-  print('************** DELETION 30****************')
+  print('************** DELETION 30 ****************')
   t.delete(t.root, 30)
-  print('********** INORDER TRAVERSAL *************')
-  t.treeTraversalInOrder(t.root)
-  print('\n************** DELETION 50****************')
+  print('********** INORDER TRAVERSAL **************')
+  t.InOrdertreeTraversal(t.root)
+  print('\n************** DELETION 50 **************')
   t.delete(t.root, 50)
-  print('********** INORDER TRAVERSAL *************')
-  t.treeTraversalInOrder(t.root)
+  print('********** INORDER TRAVERSAL **************')
+  t.InOrdertreeTraversal(t.root)
   print('')
-
 
 if __name__ == '__main__':
   main()
@@ -137,19 +187,24 @@ if __name__ == '__main__':
 # Output:
 # ------
 # *****************BINARY TREE ************
-#
 # ********** INORDER TRAVERSAL ************
 # 20 30 40 50 60 70 80
-# ************** SEARCHING ****************
+# ** Check Tree is Binary Search tree ***
+# Yes
+# ************ SEARCHING 60 ***************
 # value found
+# ************ SEARCHING 10 ***************
+# value is not present in the tree
+# ************* Successor of 60 ***********
+# 70
 # ************** DELETION 20 ***************
 # ********** INORDER TRAVERSAL *************
 # 30 40 50 60 70 80
-# ************** SEARCHING *****************
+# ************* SEARCHING 30 *************
 # value found
-# ************** DELETION 30****************
-# ********** INORDER TRAVERSAL *************
+# ************** DELETION 30 ****************
+# ********** INORDER TRAVERSAL **************
 # 40 50 60 70 80
-# ************** DELETION 50****************
-# ********** INORDER TRAVERSAL *************
+# ************** DELETION 50 **************
+# ********** INORDER TRAVERSAL **************
 # 40 60 70 80
