@@ -28,7 +28,7 @@ class SingleLinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print('%c -> ' % p.info, end=" ")
+      print('%c -> ' % p.info, end='')
       p = p.next
     print('None')
 
@@ -50,7 +50,7 @@ class SingleLinkList:
     print(left.info, right.info)
     rsp = (left.info == right.info)
     return rsp, left.next
-    
+
 link_list = SingleLinkList()
 print('*********** CREATING LIST ***************')
 link_list.create_list()

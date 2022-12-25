@@ -26,7 +26,7 @@ class SingleLinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print('%d -> ' % p.info, end=" ")
+      print('%d -> ' % p.info, end='')
       p = p.next
     print('None')
 
@@ -52,14 +52,14 @@ class SingleLinkList:
         if p.info > q.info:
           swap = 1
           p.next = q.next
-          q.next = p          
+          q.next = p
           if prev is None:
             self.start = q
             p = self.start
           else:
             prev.next = q
           prev = q
-          q = p.next           
+          q = p.next
         else:
           prev = p
           p = p.next

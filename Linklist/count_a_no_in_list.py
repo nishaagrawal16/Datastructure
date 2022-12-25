@@ -30,7 +30,7 @@ class LinkList:
     p = self.start
     i = 0
     while p is not None and i<10:
-      print('%d ->' % p.info, end=" ")
+      print('%d ->' % p.info, end='')
       p = p.next
       i = i + 1
     print('None')

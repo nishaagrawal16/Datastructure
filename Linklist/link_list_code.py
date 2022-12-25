@@ -22,10 +22,10 @@ class SingleLinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print('%d -> ' % p.info, end=" ")
+      print('%d -> ' % p.info, end='')
       p = p.next
     print('None')
-    
+
   def searchElement(self, value):
     p = self.start
     pos = 1
@@ -75,8 +75,8 @@ class SingleLinkList:
       p = p.next
       travel = travel + 1
     temp.next = p.next
-    p.next = temp 
-    
+    p.next = temp
+
   def deleteEnd(self):
     if self.start == None:
       print('List is empty')
@@ -137,7 +137,7 @@ class SingleLinkList:
     temp = self.start
     length = self.countNodes()
     if k > length:
-      print('K is more than length of the link list')      
+      print('K is more than length of the link list')
     i = 1
     while p is not None and i < k:
       i = i + 1
@@ -151,7 +151,7 @@ class SingleLinkList:
     length = self.countNodes()
     newK = length - k + 1
     if newK > length:
-      print('K is more than length of the link list')      
+      print('K is more than length of the link list')
     i = 1
     while p is not None and i < newK:
       i = i + 1
@@ -177,7 +177,7 @@ class SingleLinkList:
       current.next = prev
       prev = current
       current = next
-    self.start = prev  
+    self.start = prev
 
 link_list = SingleLinkList()
 print('*********** CREATING LIST ***************')

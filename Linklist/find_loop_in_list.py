@@ -9,7 +9,7 @@ class Node:
 class LinkList:
   def __init__(self):
     self.start = None
-    
+
   def create_list_with_loop(self):
     n1 = Node(10)
     n2 = Node(20)
@@ -29,7 +29,7 @@ class LinkList:
     p = self.start
     i = 0
     while p is not None and i<10:
-      print('%d -> ' % p.info, end=" ")
+      print('%d -> ' % p.info, end='')
       p = p.next
       i = i + 1
     print('None')
@@ -50,7 +50,7 @@ class LinkList:
         return count
     print('No Loop present')
     return 0
-   
+
 link_list = LinkList()
 link_list.create_list_with_loop()
 link_list.traverse()

@@ -10,7 +10,7 @@
 #
 # Input: (6 -> 1 -> 7) + (2 -> 9 -> 5). That is, 617 + 295
 # Output: 9 -> 1 -> 2. That is, 912.
-# 
+#
 #
 # Approach:
 # Add padding 0's at starting of list which is shorter. Use recursive approach
@@ -43,7 +43,7 @@ class LinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print('%d -> ' % p.info, end=" ")
+      print('%d -> ' % p.info, end='')
       p = p.next
     print('None')
 
@@ -75,9 +75,9 @@ class LinkList:
     carry = self.sum_of_linklist_rec(node_1.next, node_2.next)
     value = carry + node_1.info + node_2.info
     self.add_node_at_start(value%10)
-    
+
     # Returning carry i.e if value = 18, carry=18/10
-    return value/10    
+    return value/10
 
   def sum_of_linklist_in_same_order(self, l1, l2):
     len_l1 = l1.length()

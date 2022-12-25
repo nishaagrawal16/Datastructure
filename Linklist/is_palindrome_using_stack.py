@@ -23,11 +23,11 @@ class SingleLinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print('%c -> ' % p.info, end=" ")
+      print('%c -> ' % p.info, end='')
       p = p.next
     print('None')
 
-  def isPalindrom(self):    
+  def isPalindrom(self):
     slow = self.start
     fast = self.start
     stack = []

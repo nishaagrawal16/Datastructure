@@ -22,7 +22,7 @@ class LinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print('%d -> ' % p.info, end=" ")
+      print('%d -> ' % p.info, end='')
       p = p.next
     print('None')
 
@@ -53,7 +53,7 @@ class LinkList:
         d = d - 1
     print('Starting points: ', l1.info, l2.info)
     while l1.next is not None or l2.next is not None:
-      if l1.next == l2.next:        
+      if l1.next == l2.next:
         print('intersection point: ', l1.next.info)
         return
       else:

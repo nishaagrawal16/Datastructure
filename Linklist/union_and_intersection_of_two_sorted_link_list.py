@@ -23,7 +23,7 @@ class LinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print '%d ->' % p.info,
+      print('%d -> ' % p.info, end='')
       p = p.next
     print ('None')
 
@@ -41,7 +41,7 @@ def union(l1, l2):
     else:
       temp = Node(p1.info)
       p1 = p1.next
-      p2 = p2.next 
+      p2 = p2.next
     if l3.start is None:
       l3.start = temp
       p = l3.start
@@ -77,7 +77,7 @@ def intersection(l1, l2):
       p2 = p2.next
     else:
       temp = Node(p1.info)
-      if l3.start == None:        
+      if l3.start == None:
         l3.start = temp
         p = l3.start
       elif p1.info != p.info:

@@ -30,7 +30,7 @@ class LinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print('%d -> ' % p.info, end=" ")
+      print('%d -> ' % p.info, end='')
       p = p.next
     print('None')
 
@@ -49,17 +49,17 @@ class LinkList:
     currY = self.start
     while currY is not None and currY.info != y:
       prevY = currY
-      currY = currY.next      
-    
+      currY = currY.next
+
     # If any x or y is not present in the list
     if currX == None or currY == None:
       return
-    # If x is not head of linked list 
+    # If x is not head of linked list
     if prevX != None:
       prevX.next = currY
     else:
       self.start = currY
-    # If y is not head of linked list 
+    # If y is not head of linked list
     if prevY != None:
       prevY.next = currX
     else:
@@ -88,6 +88,20 @@ class LinkList:
     self.start = curr
     prev.next = None
 
+  def swapAllPairsInplace(self):
+    p = self.start
+    prev = None
+    while p is not None and p.next is not None:
+      temp = p.next
+      p.next = temp.next
+      temp.next = p
+      if not prev:
+        self.start = temp
+      else:
+        prev.next = temp
+      prev = p
+      p = p.next
+
 
 link_list = LinkList()
 link_list.create_list()
@@ -102,4 +116,7 @@ link_list.swapAllPairs()
 link_list.traverse()
 print ('************ Move last element to first *******')
 link_list.moveLastElementToFirst()
+link_list.traverse()
+print ('************SWAP all pairs inplace ***************')
+link_list.swapAllPairsInplace()
 link_list.traverse()

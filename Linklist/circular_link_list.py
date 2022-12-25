@@ -100,10 +100,11 @@ class LinkList:
     if self.start is not None:
       p = self.start
       while p is not None:
-        print '%d -> ' % p.info,
+        print('%d -> ' % p.info, end='')
         p = p.next
         if p == self.start:
           break
+      print ('None')
       print('starting point:', p.info)
 
 def main():

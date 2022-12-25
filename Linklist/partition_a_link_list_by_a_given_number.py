@@ -43,7 +43,7 @@ class LinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print('%d ->' % p.info, end=" ")
+      print('%d ->' % p.info, end='')
       p = p.next
     print ('None')
 
@@ -77,7 +77,7 @@ class LinkList:
       return False
 
     # May be possible that before list is empty as no numebr is less than x.
-    # so check the before end is not None otherwise make the after_start as 
+    # so check the before end is not None otherwise make the after_start as
     # starting point of the list.
     after_end.next = None
     if before_end is None:

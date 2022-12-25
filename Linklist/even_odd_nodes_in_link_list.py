@@ -23,13 +23,13 @@ class LinkList:
   def traverse(self):
     p = self.start
     while p is not None:
-      print '%d -> ' % p.info,
+      print('%d -> ' % p.info, end='')
       p = p.next
     print('None')
 
   def oddEvenList(self):
     p = self.start
-    q = self.start    
+    q = self.start
     while q.next is not None:
       q = q.next
     last = q

@@ -13,7 +13,7 @@ class Node:
 class LinkList:
   def __init__(self):
     self.start = None
-    
+
   def create_list_with_loop(self):
     n1 = Node(10)
     n2 = Node(20)
@@ -33,7 +33,7 @@ class LinkList:
     p = self.start
     i = 0
     while p is not None and i<10:
-      print('%d -> ' % p.info)
+      print('%d -> ' % p.info, end='')
       p = p.next
       i = i + 1
     print('None')
@@ -54,7 +54,7 @@ class LinkList:
             return True
           else:
             p1 = p1.next
-            p2 = p2.next    
+            p2 = p2.next
     return False
 
 def main():

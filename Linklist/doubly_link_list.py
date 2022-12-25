@@ -17,13 +17,13 @@ class LinkList:
     for i in range(1,len(li)):
       temp = Node(li[i])
       temp.prev = p
-      p.next = temp      
+      p.next = temp
       p = p.next
 
   def traverse(self):
     p = self.start
     while p is not None:
-      print('%d -> ' % p.info)
+      print('%d -> ' % p.info, end='')
       p = p.next
     print('None')
 
@@ -33,8 +33,8 @@ class LinkList:
     while p is not None:
       count = count + 1
       p = p.next
-    return 
-  
+    return
+
   def insert_at_the_end(self, value):
     temp = Node(value)
     p = self.start

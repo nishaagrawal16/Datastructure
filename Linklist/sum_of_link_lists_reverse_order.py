@@ -19,9 +19,10 @@
 # Complexity:
 # O(n), where n = length of larger list.
 
-class Node:
-  def __init__(self, value):
-    self.info = value
+# Definition for singly-linked list.
+class ListNode:
+  def __init__(self, x):
+    self.val = x
     self.next = None
 
 class LinkList:
@@ -30,67 +31,66 @@ class LinkList:
 
   def create_list(self, li):
     if self.start is None:
-      self.start = Node(li[0])
+      self.start = ListNode(li[0])
     p = self.start
     for i in range(1,len(li)):
-      temp = Node(li[i])
+      temp = ListNode(li[i])
       p.next = temp
       p = p.next
 
   def traverse(self):
     p = self.start
     while p is not None:
-      print('%d -> ' % p.info, end=" ")
+      print('%d -> ' % p.val, end='')
       p = p.next
     print('None')
 
-def sum_of_reverse_linklist(l1, l2):
-  p1 = l1.start
-  p2 = l2.start
-  l3 = LinkList()
-  carry = 0
-  while p1 is not None or p2 is not None or carry:
-    s = carry
-    if p1:
-      s += p1.info
-      p1 = p1.next
-    if p2:
-      s += p2.info
-      p2 = p2.next    
-    if s >= 10:
-      carry = 1
-    else:
-      carry = 0
-    temp = Node(s%10)
-    if l3.start is None:
-      l3.start = temp
-      p3 = l3.start
-    else:
-      p3.next = temp
-      p3 = p3.next
+class Solution:
+  def addTwoNumbers(self, l1, l2):
+    p1 = l1
+    p2 = l2
+    start3 = None
+    carry = 0
+    while p1 is not None or p2 is not None:
+      sum = 0
+      if p1 is not None:
+        sum = sum + p1.val
+        p1 = p1.next
+      if p2 is not None:
+        sum = sum + p2.val
+        p2 = p2.next
+      sum = sum + carry
+      rem = sum % 10
+      carry = sum // 10
+      node = ListNode(rem)
+      if start3 is None:
+        start3 = node
+        l3 = start3
+      else:
+        l3.next = node
+        l3 = l3.next
+    if carry:
+      l3.next = ListNode(carry)
 
-  print('********* SUM OF LINKLIST IN REVERSE *********')
-  l3.traverse()   
-  
+    return start3
 def main():
-  print ('*************** LIST-1 ***********************')
+  print('********** LIST-1 ***************')
   link_list_1 = LinkList()
   link_list_1.create_list([7, 1, 6])
   link_list_1.traverse()
-  print ('*************** LIST-2 ***********************')
+  print('********** LIST-2 ***************')
   link_list_2 = LinkList()
   link_list_2.create_list([5, 9, 2])
   link_list_2.traverse()
-  sum_of_reverse_linklist(link_list_1, link_list_2)
+  s = Solution()
+  print('********** SUM OF LINKLIST IN REVERSE ***************')
+  start3 = s.addTwoNumbers(link_list_1.start, link_list_2.start)
+  list3 = start3
+  while list3 is not None:
+    print('%d -> ' % list3.val, end='')
+    list3 = list3.next
+  print('None')
+
 
 if __name__ == '__main__':
   main()
-
-# Output
-# ------
-# *************** LIST-1 ***********************
-# 7 ->  1 ->  6 ->  None
-# *************** LIST-2 ***********************
-# 5 ->  9 ->  2 ->  None
-# ********* SUM OF LINKLIST IN REVERSE *********
-# 2 ->  1 ->  9 ->  None

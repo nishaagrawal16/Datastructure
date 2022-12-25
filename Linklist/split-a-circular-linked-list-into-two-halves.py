@@ -29,7 +29,7 @@ class LinkList:
     if self.start is not None:
       p = self.start
       while p is not None:
-        print('%d -> ' % p.info, end="")
+        print('%d -> ' % p.info, end='')
         p = p.next
         if p == self.start:
           break
@@ -46,7 +46,7 @@ class LinkList:
     while fast.next != self.start and fast.next.next != self.start:
       fast = fast.next.next
       slow = slow.next
-    
+
     # If even element then move fast to it's next
     if fast.next.next == self.start:
       fast = fast.next
@@ -57,11 +57,11 @@ class LinkList:
     # Assign list2 start
     if self.start.next != self.start:
       list2.start = slow.next
-    
+
     # Make lists circular
     slow.next = list1.start
     fast.next = list2.start
-    
+
 
 def main():
   print('****************** CIRCULAR LINK LIST *****************')
@@ -76,7 +76,7 @@ def main():
   circular_linklist1.traverse()
   print('************************ 2nd List *********************')
   circular_linklist2.traverse()
-   
+
 
 if __name__ == '__main__':
   main()
