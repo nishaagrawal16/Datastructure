@@ -19,7 +19,7 @@ def partition(un_list, low, high):
     # Elements which are less than pivot will placed from starting of the list.
     if un_list[j] <= pivot:
       i = i + 1
-      un_list[j], un_list[i] = un_list[i], un_list[j]
+      un_list[i], un_list[j] = un_list[j], un_list[i]
   # Set pivot after the smaller sequence.
   un_list[i+1], un_list[high] = un_list[high], un_list[i+1]
   return i+1
