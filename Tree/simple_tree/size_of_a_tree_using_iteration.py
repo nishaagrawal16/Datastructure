@@ -49,11 +49,11 @@ def size(root):
     root = q.popleft()
     if root.left:
       q.append(root.left)
-      count = count + 1
+      count += 1
 
     if root.right:
       q.append(root.right)
-      count = count + 1
+      count += 1
 
   return count
 

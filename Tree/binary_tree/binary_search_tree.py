@@ -132,7 +132,7 @@ def checkBSTUtils(root):
 
 
 def main():
-  print('*****************BINARY TREE ************')
+  print('**************** BINARY TREE ************')
   t = Tree()
   t.root = TreesNode(50)
   t.root = t.insert(t.root, 30)
@@ -143,7 +143,7 @@ def main():
   t.root = t.insert(t.root, 80)
   print('********** INORDER TRAVERSAL ************')
   t.InOrdertreeTraversal(t.root)
-  print('\n** Check Tree is Binary Search tree ***')
+  print('\n*** Check Tree is Binary Search tree ****')
   if checkBSTUtils(t.root):
     print('Yes')
   else:
@@ -158,26 +158,26 @@ def main():
     print('value found')
   else:
     print('value is not present in the tree')
-  print('************* Successor of 60 ***********')
+  print('************* SUCCESSOR OF 60 ***********')
   successor = t.getSuccessor(t.root, 60)
   if successor:
     print(successor.data)
-  print('************** DELETION 20 ***************')
+  print('************** DELETION 20 **************')
   t.delete(t.root, 20)
-  print('********** INORDER TRAVERSAL *************')
+  print('********** INORDER TRAVERSAL ************')
   t.InOrdertreeTraversal(t.root)
-  print('\n************* SEARCHING 30 *************')
+  print('\n************* SEARCHING 30 **************')
   if t.search(t.root, 30):
     print('value found')
   else:
     print('value is not present in the tree')
-  print('************** DELETION 30 ****************')
+  print('************** DELETION 30 **************')
   t.delete(t.root, 30)
-  print('********** INORDER TRAVERSAL **************')
+  print('********** INORDER TRAVERSAL ************')
   t.InOrdertreeTraversal(t.root)
   print('\n************** DELETION 50 **************')
   t.delete(t.root, 50)
-  print('********** INORDER TRAVERSAL **************')
+  print('********** INORDER TRAVERSAL ************')
   t.InOrdertreeTraversal(t.root)
   print('')
 
@@ -186,25 +186,25 @@ if __name__ == '__main__':
 
 # Output:
 # ------
-# *****************BINARY TREE ************
+# **************** BINARY TREE ************
 # ********** INORDER TRAVERSAL ************
 # 20 30 40 50 60 70 80
-# ** Check Tree is Binary Search tree ***
+# *** Check Tree is Binary Search tree ****
 # Yes
 # ************ SEARCHING 60 ***************
 # value found
 # ************ SEARCHING 10 ***************
 # value is not present in the tree
-# ************* Successor of 60 ***********
+# ************* SUCCESSOR OF 60 ***********
 # 70
-# ************** DELETION 20 ***************
-# ********** INORDER TRAVERSAL *************
+# ************** DELETION 20 **************
+# ********** INORDER TRAVERSAL ************
 # 30 40 50 60 70 80
-# ************* SEARCHING 30 *************
+# ************* SEARCHING 30 **************
 # value found
-# ************** DELETION 30 ****************
-# ********** INORDER TRAVERSAL **************
+# ************** DELETION 30 **************
+# ********** INORDER TRAVERSAL ************
 # 40 50 60 70 80
 # ************** DELETION 50 **************
-# ********** INORDER TRAVERSAL **************
+# ********** INORDER TRAVERSAL ************
 # 40 60 70 80

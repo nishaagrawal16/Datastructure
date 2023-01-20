@@ -57,24 +57,21 @@ class Tree:
     if root is None:
       return
 
-    hd = 0
-    q = collections.deque([(root, hd)])
-
+    q = collections.deque([root])
     while len(q):
       n = len(q)
-
       # This is for checking to all level.
       for i in range(n):
-        root, hd = q.popleft()
+        root = q.popleft()
         # For printing the last node of every level for right view.
         if i + 1 == n:
           print(root.info, end=' ')
 
         if root.left:
-          q.append((root.left, hd - 1))
+          q.append(root.left)
 
         if root.right:
-          q.append((root.right, hd + 1))
+          q.append(root.right)
 
 
 def main():

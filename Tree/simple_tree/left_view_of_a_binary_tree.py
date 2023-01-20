@@ -54,27 +54,25 @@ class Tree:
     self.viewLeftUtil(root.right, level + 1, max_level)
 
   def viewLeftThroughIteration(self, root):
-    if root is None:
-      return
+      if root is None:
+        return
 
-    hd = 0
-    q = collections.deque([(root, hd)])
+      q = collections.deque([root])
+      while len(q):
+        n = len(q)
 
-    while len(q):
-      n = len(q)
+        # This is for checking to all level.
+        for i in range(n):
+          root = q.popleft()
+          # For printing the first node of every level as left view.
+          if i == 0:
+            print(root.info, end=' ')
 
-      # This is for checking to all level.
-      for i in range(n):
-        root, hd = q.popleft()
-        # For printing the first node of every level as left view.
-        if i == 0:
-          print(root.info, end=' ')
+          if root.left:
+            q.append(root.left)
 
-        if root.left:
-          q.append((root.left, hd - 1))
-
-        if root.right:
-          q.append((root.right, hd + 1))
+          if root.right:
+            q.append(root.right)
 
 
 def main():

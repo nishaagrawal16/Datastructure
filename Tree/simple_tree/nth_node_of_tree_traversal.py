@@ -36,7 +36,7 @@ class Tree:
 
   def NthNodeOfPreOrderTraversal(self, root, n):
     if root:
-      self.count = self.count + 1
+      self.count += 1
       if self.count == n:
         print(root.info)
       self.NthNodeOfPreOrderTraversal(root.left, n)
@@ -51,7 +51,7 @@ class Tree:
   def NthNodeOfInOrderTraversal(self, root, n):
     if root:
       self.NthNodeOfInOrderTraversal(root.left, n)
-      self.count = self.count + 1
+      self.count += 1
       if self.count == n:
         print(root.info)
       self.NthNodeOfInOrderTraversal(root.right, n)
@@ -66,7 +66,7 @@ class Tree:
     if root:
       self.NthNodeOfPostOrderTraversal(root.left, n)
       self.NthNodeOfPostOrderTraversal(root.right, n)
-      self.count = self.count + 1
+      self.count += 1
       if self.count == n:
         print(root.info)
 

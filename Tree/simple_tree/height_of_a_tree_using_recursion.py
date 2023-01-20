@@ -40,10 +40,7 @@ class Tree:
 def height(node):
   if node is None:
     return 0
-  else:
-    left_height = height(node.left)
-    right_height = height(node.right)
-    return 1 + max(left_height, right_height)
+  return 1 + max(height(node.left), height(node.right))
 
 def main():
   print('***************** TREE ******************\n')

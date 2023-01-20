@@ -1,6 +1,6 @@
 # Date: 13-Dec-2019
 # Vertical order traversal of a Binary Tree
-# https://www.geeksforgeeks.org/print-binary-tree-vertical-order/
+# https://www.geeksforgeeks.org/print-a-binary-tree-in-vertical-order-set-3-using-level-order-traversal/#
 #         1
 #       /   \
 #      2     3
@@ -12,14 +12,9 @@
 #              11
 #               \
 #                12
-#
-# min --> Minimum horizontal distance from root
-# max --> Maximum horizontal distance from root
-# hd  --> Horizontal distance of current node from root
-# O(m*n)
-# Where m is the length of min to max (range)
-# n is the number of nodes of tree
-# Note: For long tree 12 print before 9 (Not very efficient solution)
+# O(n)
+
+import collections
 
 class Node:
   def __init__(self, value):
@@ -37,26 +32,33 @@ class Tree:
       print(root.info, end=' ')
       self.treeTraversalInOrder(root.right)
 
-def minMaxOfTree(root, min, max, hd):
-  if root is None:
-    return
-  if hd < min[0]:
-    min[0] = hd
-  elif hd > max[0]:
-    max[0] = hd
-  minMaxOfTree(root.left, min, max, hd - 1)
-  minMaxOfTree(root.right, min, max, hd + 1)
-  # print min, max
+  def verticalOrderTraversal(self, root):
+    if root is None:
+      return
 
-def verticalOrderTraversal(root, line_no, hd):
-  if root is None:
-    return
+    m = {}
+    hd = 0
+    q = collections.deque([(root, hd)])
 
-  if line_no == hd:
-    print(root.info, end=' ')
+    while len(q):
+      root, hd = q.popleft()
 
-  verticalOrderTraversal(root.left, line_no, hd - 1)
-  verticalOrderTraversal(root.right, line_no, hd + 1)
+      # Check hd is not present in dictionary, create a list
+      # as value corresponding to hd as key.
+      if hd not in m:
+        m[hd] = []
+      m[hd].append(root.info)
+
+      if root.left:
+        q.append((root.left, hd - 1))
+
+      if root.right:
+        q.append((root.right, hd + 1))
+
+    for key in sorted(m):
+      for i in m[key]:
+        print(i, end=' ')
+      print('')
 
 
 def main():
@@ -76,14 +78,8 @@ def main():
   root.right.right.left.right.right = Node(12)
   print('********** INORDER TRAVERSAL ************')
   t.treeTraversalInOrder(root)
-  print('\n***** VERTICAL ORDER TRAVERSAL*********')
-  min = [0]
-  max = [0]
-  hd = 0
-  minMaxOfTree(root, min, max, hd)
-  for line_no in range(min[0], max[0] + 1):
-    verticalOrderTraversal(root, line_no, hd)
-    print('')
+  print('\n******* VERTICAL ORDER TRAVERSAL ********')
+  t.verticalOrderTraversal(root)
 
 
 if __name__ == '__main__':
@@ -97,10 +93,10 @@ if __name__ == '__main__':
 #
 # ********** INORDER TRAVERSAL ************
 # 4 2 5 1 6 8 3 10 11 12 7 9
-# ***** VERTICAL ORDER TRAVERSAL*********
+# ******* VERTICAL ORDER TRAVERSAL ********
 # 4
 # 2
 # 1 5 6
 # 3 8 10
 # 7 11
-# 12 9
+# 9 12

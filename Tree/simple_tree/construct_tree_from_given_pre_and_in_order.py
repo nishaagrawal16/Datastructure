@@ -26,6 +26,7 @@ class Tree:
       print(root.info, end=' ')
       self.treeTraversalInOrder(root.right)
 
+# O(n^2)
 def buildTree(preorder, inorder, n):
   if preorder[0] in inorder:
     rootIndx = inorder.index(preorder[0])
@@ -47,7 +48,6 @@ def buildTree(preorder, inorder, n):
                    len(inorder[rootIndx+1:]))
   print('returned info: ', tNode.info)
   return tNode
-
 
 # O(n)
 def build_tree(preorder, inorder):
@@ -104,5 +104,7 @@ if __name__ == '__main__':
 # returned info:  6
 # returned info:  3
 # returned info:  1
+# ********** INORDER TRAVERSAL ************
+# 4 2 5 1 3 6
 # ********** INORDER TRAVERSAL ************
 # 4 2 5 1 3 6

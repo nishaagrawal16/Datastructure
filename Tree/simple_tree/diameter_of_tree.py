@@ -6,9 +6,9 @@
 #
 # Approach:
 # Diameter of a tree can be calculated by only using the height function,
-# because the diameter of a tree is nothing but maximum value of (left_height + right_height + 1)
-# for each node. So we need to calculate this value (left_height + right_height + 1)
-# for each node and update the result.
+# because the diameter of a tree is nothing but maximum value of
+# (left_height + right_height + 1) for each node. So we need to calculate
+# this value (left_height + right_height + 1) for each node and update the result.
 #
 # Reference:
 # https://www.geeksforgeeks.org/diameter-of-a-binary-tree-in-on-a-new-method/
@@ -51,11 +51,10 @@ class Tree:
 def height(node, d):
   if node is None:
     return 0
-  else:
-    left_height = height(node.left, d)
-    right_height = height(node.right, d)
-    d[0] = max(d[0], (left_height + left_height + 1))
-    return 1 + max(left_height, right_height)
+  left_height = height(node.left, d)
+  right_height = height(node.right, d)
+  d[0] = max(d[0], (left_height + right_height + 1))
+  return max(left_height, right_height) + 1
 
 
 def main():

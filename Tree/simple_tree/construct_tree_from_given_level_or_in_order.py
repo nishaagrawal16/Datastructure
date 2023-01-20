@@ -7,7 +7,7 @@
 #    4  5      6
 #
 # https://www.geeksforgeeks.org/construct-tree-inorder-level-order-traversals/
-# O(n2)
+# O(n^3)
 
 
 class Node:
@@ -26,15 +26,15 @@ class Tree:
       print(root.info, end=' ')
       self.treeTraversalInOrder(root.right)
 
+# O(n^3)=> n: recursion, n: for loop, n: index()
 def buildTree(levelorder, inorder):
-  if inorder:
-    for i in range(0, len(levelorder)):
-      if levelorder[i] in inorder:
-        rootIndx = inorder.index(levelorder[i])
-        tNode = Node(levelorder[i])
-        break
   if not inorder:
     return
+  for i in range(len(levelorder)):
+    if levelorder[i] in inorder:
+      rootIndx = inorder.index(levelorder[i])
+      tNode = Node(levelorder[i])
+      break
 
   # Creating left subtree present
   tNode.left = buildTree(levelorder, inorder[:rootIndx])
@@ -44,30 +44,28 @@ def buildTree(levelorder, inorder):
   print('returned info: ', tNode.info)
   return tNode
 
-# O(n2)
+# O(n^2)
 def build_tree(levelorder, inorder):
-  def array_of_tree(levelorder, inorder):
-    if not inorder:
-      return None
+  if not inorder:
+    return None
 
-    for i in range(0, len(levelorder)):
-      if levelorder[i] in inorder:
-        rootIndx = map_of_inorder_value[levelorder[i]]
-        root = Node(levelorder[i])
-        break
+  # Use map instead of index() because it use O(n) complexity
+  map_of_inorder_value = {v: i for i, v in enumerate(inorder)}
+  # Use set insetead of list because it use O(n) complexity
+  # when using the in operator
+  inorder_set = set(inorder)
+  for i in range(len(levelorder)):
+    if levelorder[i] in inorder_set:
+      rootIndx = map_of_inorder_value[levelorder[i]]
+      root = Node(levelorder[i])
+      break
 
-    # Creating left subtree present
-    root.left = buildTree(levelorder, inorder[:rootIndx])
+  # Creating left subtree present
+  root.left = build_tree(levelorder, inorder[:rootIndx])
 
-    # Creating right subtree present
-    root.right = buildTree(levelorder, inorder[rootIndx+1:])
-    return root
-
-  map_of_inorder_value = {}
-  for index, value in enumerate(inorder):
-    map_of_inorder_value[value] = index
-  return array_of_tree(levelorder, inorder)
-
+  # Creating right subtree present
+  root.right = build_tree(levelorder, inorder[rootIndx+1:])
+  return root
 
 def main():
   inorder = [4, 2, 5, 1, 3, 6]
@@ -100,5 +98,7 @@ if __name__ == '__main__':
 # returned info:  6
 # returned info:  3
 # returned info:  1
+# ********** INORDER TRAVERSAL ************
+# 4 2 5 1 3 6
 # ********** INORDER TRAVERSAL ************
 # 4 2 5 1 3 6

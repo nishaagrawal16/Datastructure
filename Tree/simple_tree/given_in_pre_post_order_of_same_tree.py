@@ -29,6 +29,7 @@ class Tree:
       post_order.append(root.info)
       print(root.info, end=' ')
 
+# O(n^2)
 def buildTree(preorder, inorder, n):
   if preorder[0] in inorder:
     rootIndx = inorder.index(preorder[0])

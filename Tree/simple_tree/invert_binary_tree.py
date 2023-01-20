@@ -1,11 +1,11 @@
-# Invert binary tree
+# Invert binary tree [Mirror image]
 # https://leetcode.com/problems/invert-binary-tree/
 #
-#         10
-#       /   \
-#      20   30
-#     / \
-#    40 50
+#        10      |     10
+#       /  \     |    /  \
+#      20  30    |   30  20
+#     / \        |       / \
+#    40 50       |      50 40
 # O(n)
 
 import collections
@@ -38,7 +38,9 @@ class Tree:
       print(root.info, end=' ')
       self.treeTraversalInOrder(root.right)
 
-  def invertTree(self, root):
+  # Through Iteration:
+  # ------------------
+  def invertTreeIteration(self, root):
     if root is None:
       return root
 
@@ -54,24 +56,32 @@ class Tree:
 
   # Through Recursion:
   # ------------------
-  # def invertTree(self, root):
-  #   if root is None:
-  #     return root
+  def invertTreeRecursion(self, root):
+    if root is None:
+      return root
 
-  #   root.left, root.right = root.right, root.left
-  #   root.left = self.invertTree(root.left)
-  #   root.right = self.invertTree(root.right)
-  #   return root
+    root.left, root.right = root.right, root.left
+    root.left = self.invertTreeRecursion(root.left)
+    root.right = self.invertTreeRecursion(root.right)
+    return root
 
 def main():
-  print('***************** TREE ******************\n')
-  t = Tree()
-  t.createTree()
-  print('********** INORDER TRAVERSAL ************')
-  t.treeTraversalInOrder(t.root)
-  invertedTreeRoot = t.invertTree(t.root)
-  print('\n********** INORDER TRAVERSAL OF INVERTED TREE ************')
-  t.treeTraversalInOrder(invertedTreeRoot)
+  print('********************************* TREE *********************************\n')
+  t1 = Tree()
+  t1.createTree()
+  print('***************************** INORDER TRAVERSAL ************************')
+  t1.treeTraversalInOrder(t1.root)
+  invertedTreeRoot = t1.invertTreeIteration(t1.root)
+  print('\n************ INORDER TRAVERSAL OF INVERTED TREE (ITERATION) ************')
+  t1.treeTraversalInOrder(invertedTreeRoot)
+  print('')
+  t2 = Tree()
+  t2.createTree()
+  print('***************************** INORDER TRAVERSAL ************************')
+  t2.treeTraversalInOrder(t2.root)
+  invertedTreeRoot = t2.invertTreeRecursion(t2.root)
+  print('\n************ INORDER TRAVERSAL OF INVERTED TREE (RECURSION) ************')
+  t2.treeTraversalInOrder(invertedTreeRoot)
   print('')
 
 if __name__ == '__main__':

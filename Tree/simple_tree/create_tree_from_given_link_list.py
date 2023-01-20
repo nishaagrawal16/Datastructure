@@ -56,7 +56,6 @@ class Tree:
       self.treeTraversalInOrder(root.right)
 
 def create_tree(start):
-
   current = start
   t = Tree()
   t.root = TreeNode(current.info)
