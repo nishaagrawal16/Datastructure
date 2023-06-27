@@ -1,14 +1,15 @@
 """
 https://leetcode.com/problems/validate-binary-search-tree/
-#         10
-#       /   \
-#      20   30
-#     / \
-#    40 50
+        10
+      /   \
+     20   30
+    / \
+   40 50
 Complexity
 ----------
 O(n)
 """
+
 import math
 from collections import deque
 
@@ -78,4 +79,3 @@ if __name__ == '__main__':
 # ********** INORDER TRAVERSAL ************
 # 40 20 50 10 30
 # Given tree is not the Binary search Tree
-
