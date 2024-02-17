@@ -33,6 +33,7 @@ class LinkList:
         p = p.next
         if p == self.start:
           break
+      print('None')
       if p is not None:
         print('starting point:', p.info)
 

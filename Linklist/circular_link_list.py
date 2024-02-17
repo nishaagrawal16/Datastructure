@@ -51,8 +51,15 @@ class LinkList:
       else:
         p = p.next
 
-  def insert_after(self, k):
-    pass
+  def insert_at(self, k, val):
+    temp = Node(val)
+    i = 1
+    p = self.start
+    while i < k-1:
+        p = p.next
+        i += 1
+    temp.next = p.next
+    p.next = temp
 
   def delete_from_end(self):
     # Check list is empty
@@ -107,11 +114,15 @@ class LinkList:
       print ('None')
       print('starting point:', p.info)
 
+
 def main():
   print('****************** CIRCULAR LINK LIST *****************')
   circular_linklist = LinkList()
   print('********************** CREATE LIST ********************')
   circular_linklist.create_link_list()
+  circular_linklist.traverse()
+  print('*********** INSERT At 8th position ********************')
+  circular_linklist.insert_at(8, 22)
   circular_linklist.traverse()
 
   circular_linklist1 = LinkList()
