@@ -42,6 +42,7 @@ class Tree:
     max_level = [0]
     self.viewLeftUtil(root, 1, max_level)
 
+  # Space complexity: O(height of the tree)
   def viewLeftUtil(self, root, level, max_level):
     if root is None:
       return
@@ -53,6 +54,7 @@ class Tree:
     self.viewLeftUtil(root.left, level + 1, max_level)
     self.viewLeftUtil(root.right, level + 1, max_level)
 
+  # Space complexity is more as compared with recursive approach
   def viewLeftThroughIteration(self, root):
       if root is None:
         return
